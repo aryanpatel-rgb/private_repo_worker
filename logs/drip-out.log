@@ -1,0 +1,1073 @@
+2025-12-25T09:34:11: [DripWorker] Running as standalone process
+2025-12-25T09:34:11: [DripWorker] ========================================
+2025-12-25T09:34:11: [DripWorker] Starting Drip Worker
+2025-12-25T09:34:11: [DripWorker] Batch Size: 200
+2025-12-25T09:34:11: [DripWorker] Interval: 60000 ms
+2025-12-25T09:34:11: [DripWorker] ========================================
+2025-12-25T09:34:11: [DripWorker] ========================================
+2025-12-25T09:34:11: [DripWorker] Starting drip processing batch
+2025-12-25T09:34:11: [DripWorker] Time: 2025-12-25T04:04:11.425Z
+2025-12-25T09:34:11: [DripWorker] ========================================
+2025-12-25T09:34:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T09:34:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T09:34:11: [DripWorker] Worker started successfully
+2025-12-25T09:34:12: [Workers:INFO] [Workers] Database reader connection established successfully
+2025-12-25T09:34:12: [Workers] Database reader connection established successfully
+2025-12-25T09:34:12: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T09:34:12: [DripScheduler:Worker] No pending drips to process
+2025-12-25T09:34:12: [DripWorker] Batch complete:
+2025-12-25T09:34:12:   - Processed: 0
+2025-12-25T09:34:12:   - Sent: 0
+2025-12-25T09:34:12:   - Failed: 0
+2025-12-25T09:34:12:   - Skipped: 0
+2025-12-25T09:34:12:   - Duration: 1456ms
+2025-12-25T09:34:14: [Workers:INFO] [Workers] Database writer connection established successfully
+2025-12-25T09:34:14: [Workers] Database writer connection established successfully
+2025-12-25T09:35:11: [DripWorker] ========================================
+2025-12-25T09:35:11: [DripWorker] Starting drip processing batch
+2025-12-25T09:35:11: [DripWorker] Time: 2025-12-25T04:05:11.431Z
+2025-12-25T09:35:11: [DripWorker] ========================================
+2025-12-25T09:35:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T09:35:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T09:35:11: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T09:35:11: [DripScheduler:Worker] No pending drips to process
+2025-12-25T09:35:11: [DripWorker] Batch complete:
+2025-12-25T09:35:11:   - Processed: 0
+2025-12-25T09:35:11:   - Sent: 0
+2025-12-25T09:35:11:   - Failed: 0
+2025-12-25T09:35:11:   - Skipped: 0
+2025-12-25T09:35:11:   - Duration: 219ms
+2025-12-25T09:36:11: [DripWorker] ========================================
+2025-12-25T09:36:11: [DripWorker] Starting drip processing batch
+2025-12-25T09:36:11: [DripWorker] Time: 2025-12-25T04:06:11.446Z
+2025-12-25T09:36:11: [DripWorker] ========================================
+2025-12-25T09:36:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T09:36:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T09:36:11: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T09:36:11: [DripScheduler:Worker] No pending drips to process
+2025-12-25T09:36:11: [DripWorker] Batch complete:
+2025-12-25T09:36:11:   - Processed: 0
+2025-12-25T09:36:11:   - Sent: 0
+2025-12-25T09:36:11:   - Failed: 0
+2025-12-25T09:36:11:   - Skipped: 0
+2025-12-25T09:36:11:   - Duration: 220ms
+2025-12-25T09:37:11: [DripWorker] ========================================
+2025-12-25T09:37:11: [DripWorker] Starting drip processing batch
+2025-12-25T09:37:11: [DripWorker] Time: 2025-12-25T04:07:11.458Z
+2025-12-25T09:37:11: [DripWorker] ========================================
+2025-12-25T09:37:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T09:37:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T09:37:11: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T09:37:11: [DripScheduler:Worker] No pending drips to process
+2025-12-25T09:37:11: [DripWorker] Batch complete:
+2025-12-25T09:37:11:   - Processed: 0
+2025-12-25T09:37:11:   - Sent: 0
+2025-12-25T09:37:11:   - Failed: 0
+2025-12-25T09:37:11:   - Skipped: 0
+2025-12-25T09:37:11:   - Duration: 219ms
+2025-12-25T09:38:11: [DripWorker] ========================================
+2025-12-25T09:38:11: [DripWorker] Starting drip processing batch
+2025-12-25T09:38:11: [DripWorker] Time: 2025-12-25T04:08:11.465Z
+2025-12-25T09:38:11: [DripWorker] ========================================
+2025-12-25T09:38:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T09:38:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T09:38:11: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T09:38:11: [DripScheduler:Worker] No pending drips to process
+2025-12-25T09:38:11: [DripWorker] Batch complete:
+2025-12-25T09:38:11:   - Processed: 0
+2025-12-25T09:38:11:   - Sent: 0
+2025-12-25T09:38:11:   - Failed: 0
+2025-12-25T09:38:11:   - Skipped: 0
+2025-12-25T09:38:11:   - Duration: 220ms
+2025-12-25T09:39:11: [DripWorker] ========================================
+2025-12-25T09:39:11: [DripWorker] Starting drip processing batch
+2025-12-25T09:39:11: [DripWorker] Time: 2025-12-25T04:09:11.481Z
+2025-12-25T09:39:11: [DripWorker] ========================================
+2025-12-25T09:39:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T09:39:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T09:39:11: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T09:39:11: [DripScheduler:Worker] No pending drips to process
+2025-12-25T09:39:11: [DripWorker] Batch complete:
+2025-12-25T09:39:11:   - Processed: 0
+2025-12-25T09:39:11:   - Sent: 0
+2025-12-25T09:39:11:   - Failed: 0
+2025-12-25T09:39:11:   - Skipped: 0
+2025-12-25T09:39:11:   - Duration: 231ms
+2025-12-25T09:40:11: [DripWorker] ========================================
+2025-12-25T09:40:11: [DripWorker] Starting drip processing batch
+2025-12-25T09:40:11: [DripWorker] Time: 2025-12-25T04:10:11.485Z
+2025-12-25T09:40:11: [DripWorker] ========================================
+2025-12-25T09:40:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T09:40:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T09:40:11: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T09:40:11: [DripScheduler:Worker] No pending drips to process
+2025-12-25T09:40:11: [DripWorker] Batch complete:
+2025-12-25T09:40:11:   - Processed: 0
+2025-12-25T09:40:11:   - Sent: 0
+2025-12-25T09:40:11:   - Failed: 0
+2025-12-25T09:40:11:   - Skipped: 0
+2025-12-25T09:40:11:   - Duration: 222ms
+2025-12-25T09:41:11: [DripWorker] ========================================
+2025-12-25T09:41:11: [DripWorker] Starting drip processing batch
+2025-12-25T09:41:11: [DripWorker] Time: 2025-12-25T04:11:11.496Z
+2025-12-25T09:41:11: [DripWorker] ========================================
+2025-12-25T09:41:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T09:41:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T09:41:11: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T09:41:11: [DripScheduler:Worker] No pending drips to process
+2025-12-25T09:41:11: [DripWorker] Batch complete:
+2025-12-25T09:41:11:   - Processed: 0
+2025-12-25T09:41:11:   - Sent: 0
+2025-12-25T09:41:11:   - Failed: 0
+2025-12-25T09:41:11:   - Skipped: 0
+2025-12-25T09:41:11:   - Duration: 222ms
+2025-12-25T09:42:11: [DripWorker] ========================================
+2025-12-25T09:42:11: [DripWorker] Starting drip processing batch
+2025-12-25T09:42:11: [DripWorker] Time: 2025-12-25T04:12:11.508Z
+2025-12-25T09:42:11: [DripWorker] ========================================
+2025-12-25T09:42:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T09:42:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T09:42:11: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T09:42:11: [DripScheduler:Worker] No pending drips to process
+2025-12-25T09:42:11: [DripWorker] Batch complete:
+2025-12-25T09:42:11:   - Processed: 0
+2025-12-25T09:42:11:   - Sent: 0
+2025-12-25T09:42:11:   - Failed: 0
+2025-12-25T09:42:11:   - Skipped: 0
+2025-12-25T09:42:11:   - Duration: 228ms
+2025-12-25T09:43:11: [DripWorker] ========================================
+2025-12-25T09:43:11: [DripWorker] Starting drip processing batch
+2025-12-25T09:43:11: [DripWorker] Time: 2025-12-25T04:13:11.532Z
+2025-12-25T09:43:11: [DripWorker] ========================================
+2025-12-25T09:43:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T09:43:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T09:43:11: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T09:43:11: [DripScheduler:Worker] No pending drips to process
+2025-12-25T09:43:11: [DripWorker] Batch complete:
+2025-12-25T09:43:11:   - Processed: 0
+2025-12-25T09:43:11:   - Sent: 0
+2025-12-25T09:43:11:   - Failed: 0
+2025-12-25T09:43:11:   - Skipped: 0
+2025-12-25T09:43:11:   - Duration: 234ms
+2025-12-25T09:44:11: [DripWorker] ========================================
+2025-12-25T09:44:11: [DripWorker] Starting drip processing batch
+2025-12-25T09:44:11: [DripWorker] Time: 2025-12-25T04:14:11.544Z
+2025-12-25T09:44:11: [DripWorker] ========================================
+2025-12-25T09:44:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T09:44:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T09:44:11: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T09:44:11: [DripScheduler:Worker] No pending drips to process
+2025-12-25T09:44:11: [DripWorker] Batch complete:
+2025-12-25T09:44:11:   - Processed: 0
+2025-12-25T09:44:11:   - Sent: 0
+2025-12-25T09:44:11:   - Failed: 0
+2025-12-25T09:44:11:   - Skipped: 0
+2025-12-25T09:44:11:   - Duration: 218ms
+2025-12-25T09:45:11: [DripWorker] ========================================
+2025-12-25T09:45:11: [DripWorker] Starting drip processing batch
+2025-12-25T09:45:11: [DripWorker] Time: 2025-12-25T04:15:11.553Z
+2025-12-25T09:45:11: [DripWorker] ========================================
+2025-12-25T09:45:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T09:45:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T09:45:11: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T09:45:11: [DripScheduler:Worker] No pending drips to process
+2025-12-25T09:45:11: [DripWorker] Batch complete:
+2025-12-25T09:45:11:   - Processed: 0
+2025-12-25T09:45:11:   - Sent: 0
+2025-12-25T09:45:11:   - Failed: 0
+2025-12-25T09:45:11:   - Skipped: 0
+2025-12-25T09:45:11:   - Duration: 217ms
+2025-12-25T09:46:11: [DripWorker] ========================================
+2025-12-25T09:46:11: [DripWorker] Starting drip processing batch
+2025-12-25T09:46:11: [DripWorker] Time: 2025-12-25T04:16:11.555Z
+2025-12-25T09:46:11: [DripWorker] ========================================
+2025-12-25T09:46:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T09:46:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T09:46:11: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T09:46:11: [DripScheduler:Worker] No pending drips to process
+2025-12-25T09:46:11: [DripWorker] Batch complete:
+2025-12-25T09:46:11:   - Processed: 0
+2025-12-25T09:46:11:   - Sent: 0
+2025-12-25T09:46:11:   - Failed: 0
+2025-12-25T09:46:11:   - Skipped: 0
+2025-12-25T09:46:11:   - Duration: 218ms
+2025-12-25T09:47:11: [DripWorker] ========================================
+2025-12-25T09:47:11: [DripWorker] Starting drip processing batch
+2025-12-25T09:47:11: [DripWorker] Time: 2025-12-25T04:17:11.555Z
+2025-12-25T09:47:11: [DripWorker] ========================================
+2025-12-25T09:47:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T09:47:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T09:47:11: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T09:47:11: [DripScheduler:Worker] No pending drips to process
+2025-12-25T09:47:11: [DripWorker] Batch complete:
+2025-12-25T09:47:11:   - Processed: 0
+2025-12-25T09:47:11:   - Sent: 0
+2025-12-25T09:47:11:   - Failed: 0
+2025-12-25T09:47:11:   - Skipped: 0
+2025-12-25T09:47:11:   - Duration: 217ms
+2025-12-25T09:48:11: [DripWorker] ========================================
+2025-12-25T09:48:11: [DripWorker] Starting drip processing batch
+2025-12-25T09:48:11: [DripWorker] Time: 2025-12-25T04:18:11.563Z
+2025-12-25T09:48:11: [DripWorker] ========================================
+2025-12-25T09:48:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T09:48:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T09:48:11: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T09:48:11: [DripScheduler:Worker] No pending drips to process
+2025-12-25T09:48:11: [DripWorker] Batch complete:
+2025-12-25T09:48:11:   - Processed: 0
+2025-12-25T09:48:11:   - Sent: 0
+2025-12-25T09:48:11:   - Failed: 0
+2025-12-25T09:48:11:   - Skipped: 0
+2025-12-25T09:48:11:   - Duration: 216ms
+2025-12-25T09:49:11: [DripWorker] ========================================
+2025-12-25T09:49:11: [DripWorker] Starting drip processing batch
+2025-12-25T09:49:11: [DripWorker] Time: 2025-12-25T04:19:11.565Z
+2025-12-25T09:49:11: [DripWorker] ========================================
+2025-12-25T09:49:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T09:49:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T09:49:11: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T09:49:11: [DripScheduler:Worker] No pending drips to process
+2025-12-25T09:49:11: [DripWorker] Batch complete:
+2025-12-25T09:49:11:   - Processed: 0
+2025-12-25T09:49:11:   - Sent: 0
+2025-12-25T09:49:11:   - Failed: 0
+2025-12-25T09:49:11:   - Skipped: 0
+2025-12-25T09:49:11:   - Duration: 227ms
+2025-12-25T09:50:11: [DripWorker] ========================================
+2025-12-25T09:50:11: [DripWorker] Starting drip processing batch
+2025-12-25T09:50:11: [DripWorker] Time: 2025-12-25T04:20:11.568Z
+2025-12-25T09:50:11: [DripWorker] ========================================
+2025-12-25T09:50:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T09:50:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T09:50:11: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T09:50:11: [DripScheduler:Worker] No pending drips to process
+2025-12-25T09:50:11: [DripWorker] Batch complete:
+2025-12-25T09:50:11:   - Processed: 0
+2025-12-25T09:50:11:   - Sent: 0
+2025-12-25T09:50:11:   - Failed: 0
+2025-12-25T09:50:11:   - Skipped: 0
+2025-12-25T09:50:11:   - Duration: 220ms
+2025-12-25T09:51:11: [DripWorker] ========================================
+2025-12-25T09:51:11: [DripWorker] Starting drip processing batch
+2025-12-25T09:51:11: [DripWorker] Time: 2025-12-25T04:21:11.569Z
+2025-12-25T09:51:11: [DripWorker] ========================================
+2025-12-25T09:51:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T09:51:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T09:51:11: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T09:51:11: [DripScheduler:Worker] No pending drips to process
+2025-12-25T09:51:11: [DripWorker] Batch complete:
+2025-12-25T09:51:11:   - Processed: 0
+2025-12-25T09:51:11:   - Sent: 0
+2025-12-25T09:51:11:   - Failed: 0
+2025-12-25T09:51:11:   - Skipped: 0
+2025-12-25T09:51:11:   - Duration: 218ms
+2025-12-25T09:52:11: [DripWorker] ========================================
+2025-12-25T09:52:11: [DripWorker] Starting drip processing batch
+2025-12-25T09:52:11: [DripWorker] Time: 2025-12-25T04:22:11.576Z
+2025-12-25T09:52:11: [DripWorker] ========================================
+2025-12-25T09:52:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T09:52:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T09:52:11: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T09:52:11: [DripScheduler:Worker] No pending drips to process
+2025-12-25T09:52:11: [DripWorker] Batch complete:
+2025-12-25T09:52:11:   - Processed: 0
+2025-12-25T09:52:11:   - Sent: 0
+2025-12-25T09:52:11:   - Failed: 0
+2025-12-25T09:52:11:   - Skipped: 0
+2025-12-25T09:52:11:   - Duration: 217ms
+2025-12-25T09:53:11: [DripWorker] ========================================
+2025-12-25T09:53:11: [DripWorker] Starting drip processing batch
+2025-12-25T09:53:11: [DripWorker] Time: 2025-12-25T04:23:11.587Z
+2025-12-25T09:53:11: [DripWorker] ========================================
+2025-12-25T09:53:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T09:53:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T09:53:11: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T09:53:11: [DripScheduler:Worker] No pending drips to process
+2025-12-25T09:53:11: [DripWorker] Batch complete:
+2025-12-25T09:53:11:   - Processed: 0
+2025-12-25T09:53:11:   - Sent: 0
+2025-12-25T09:53:11:   - Failed: 0
+2025-12-25T09:53:11:   - Skipped: 0
+2025-12-25T09:53:11:   - Duration: 217ms
+2025-12-25T09:54:11: [DripWorker] ========================================
+2025-12-25T09:54:11: [DripWorker] Starting drip processing batch
+2025-12-25T09:54:11: [DripWorker] Time: 2025-12-25T04:24:11.598Z
+2025-12-25T09:54:11: [DripWorker] ========================================
+2025-12-25T09:54:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T09:54:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T09:54:11: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T09:54:11: [DripScheduler:Worker] No pending drips to process
+2025-12-25T09:54:11: [DripWorker] Batch complete:
+2025-12-25T09:54:11:   - Processed: 0
+2025-12-25T09:54:11:   - Sent: 0
+2025-12-25T09:54:11:   - Failed: 0
+2025-12-25T09:54:11:   - Skipped: 0
+2025-12-25T09:54:11:   - Duration: 218ms
+2025-12-25T09:55:11: [DripWorker] ========================================
+2025-12-25T09:55:11: [DripWorker] Starting drip processing batch
+2025-12-25T09:55:11: [DripWorker] Time: 2025-12-25T04:25:11.607Z
+2025-12-25T09:55:11: [DripWorker] ========================================
+2025-12-25T09:55:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T09:55:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T09:55:11: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T09:55:11: [DripScheduler:Worker] No pending drips to process
+2025-12-25T09:55:11: [DripWorker] Batch complete:
+2025-12-25T09:55:11:   - Processed: 0
+2025-12-25T09:55:11:   - Sent: 0
+2025-12-25T09:55:11:   - Failed: 0
+2025-12-25T09:55:11:   - Skipped: 0
+2025-12-25T09:55:11:   - Duration: 216ms
+2025-12-25T09:56:11: [DripWorker] ========================================
+2025-12-25T09:56:11: [DripWorker] Starting drip processing batch
+2025-12-25T09:56:11: [DripWorker] Time: 2025-12-25T04:26:11.610Z
+2025-12-25T09:56:11: [DripWorker] ========================================
+2025-12-25T09:56:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T09:56:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T09:56:11: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T09:56:11: [DripScheduler:Worker] No pending drips to process
+2025-12-25T09:56:11: [DripWorker] Batch complete:
+2025-12-25T09:56:11:   - Processed: 0
+2025-12-25T09:56:11:   - Sent: 0
+2025-12-25T09:56:11:   - Failed: 0
+2025-12-25T09:56:11:   - Skipped: 0
+2025-12-25T09:56:11:   - Duration: 216ms
+2025-12-25T09:57:11: [DripWorker] ========================================
+2025-12-25T09:57:11: [DripWorker] Starting drip processing batch
+2025-12-25T09:57:11: [DripWorker] Time: 2025-12-25T04:27:11.624Z
+2025-12-25T09:57:11: [DripWorker] ========================================
+2025-12-25T09:57:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T09:57:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T09:57:11: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T09:57:11: [DripScheduler:Worker] No pending drips to process
+2025-12-25T09:57:11: [DripWorker] Batch complete:
+2025-12-25T09:57:11:   - Processed: 0
+2025-12-25T09:57:11:   - Sent: 0
+2025-12-25T09:57:11:   - Failed: 0
+2025-12-25T09:57:11:   - Skipped: 0
+2025-12-25T09:57:11:   - Duration: 218ms
+2025-12-25T09:58:11: [DripWorker] ========================================
+2025-12-25T09:58:11: [DripWorker] Starting drip processing batch
+2025-12-25T09:58:11: [DripWorker] Time: 2025-12-25T04:28:11.638Z
+2025-12-25T09:58:11: [DripWorker] ========================================
+2025-12-25T09:58:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T09:58:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T09:58:11: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T09:58:11: [DripScheduler:Worker] No pending drips to process
+2025-12-25T09:58:11: [DripWorker] Batch complete:
+2025-12-25T09:58:11:   - Processed: 0
+2025-12-25T09:58:11:   - Sent: 0
+2025-12-25T09:58:11:   - Failed: 0
+2025-12-25T09:58:11:   - Skipped: 0
+2025-12-25T09:58:11:   - Duration: 215ms
+2025-12-25T09:59:11: [DripWorker] ========================================
+2025-12-25T09:59:11: [DripWorker] Starting drip processing batch
+2025-12-25T09:59:11: [DripWorker] Time: 2025-12-25T04:29:11.649Z
+2025-12-25T09:59:11: [DripWorker] ========================================
+2025-12-25T09:59:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T09:59:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T09:59:11: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T09:59:11: [DripScheduler:Worker] No pending drips to process
+2025-12-25T09:59:11: [DripWorker] Batch complete:
+2025-12-25T09:59:11:   - Processed: 0
+2025-12-25T09:59:11:   - Sent: 0
+2025-12-25T09:59:11:   - Failed: 0
+2025-12-25T09:59:11:   - Skipped: 0
+2025-12-25T09:59:11:   - Duration: 220ms
+2025-12-25T10:00:11: [DripWorker] ========================================
+2025-12-25T10:00:11: [DripWorker] Starting drip processing batch
+2025-12-25T10:00:11: [DripWorker] Time: 2025-12-25T04:30:11.652Z
+2025-12-25T10:00:11: [DripWorker] ========================================
+2025-12-25T10:00:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T10:00:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T10:00:11: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T10:00:11: [DripScheduler:Worker] No pending drips to process
+2025-12-25T10:00:11: [DripWorker] Batch complete:
+2025-12-25T10:00:11:   - Processed: 0
+2025-12-25T10:00:11:   - Sent: 0
+2025-12-25T10:00:11:   - Failed: 0
+2025-12-25T10:00:11:   - Skipped: 0
+2025-12-25T10:00:11:   - Duration: 219ms
+2025-12-25T10:01:11: [DripWorker] ========================================
+2025-12-25T10:01:11: [DripWorker] Starting drip processing batch
+2025-12-25T10:01:11: [DripWorker] Time: 2025-12-25T04:31:11.660Z
+2025-12-25T10:01:11: [DripWorker] ========================================
+2025-12-25T10:01:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T10:01:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T10:01:11: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T10:01:11: [DripScheduler:Worker] No pending drips to process
+2025-12-25T10:01:11: [DripWorker] Batch complete:
+2025-12-25T10:01:11:   - Processed: 0
+2025-12-25T10:01:11:   - Sent: 0
+2025-12-25T10:01:11:   - Failed: 0
+2025-12-25T10:01:11:   - Skipped: 0
+2025-12-25T10:01:11:   - Duration: 217ms
+2025-12-25T10:02:11: [DripWorker] ========================================
+2025-12-25T10:02:11: [DripWorker] Starting drip processing batch
+2025-12-25T10:02:11: [DripWorker] Time: 2025-12-25T04:32:11.674Z
+2025-12-25T10:02:11: [DripWorker] ========================================
+2025-12-25T10:02:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T10:02:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T10:02:11: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T10:02:11: [DripScheduler:Worker] No pending drips to process
+2025-12-25T10:02:11: [DripWorker] Batch complete:
+2025-12-25T10:02:11:   - Processed: 0
+2025-12-25T10:02:11:   - Sent: 0
+2025-12-25T10:02:11:   - Failed: 0
+2025-12-25T10:02:11:   - Skipped: 0
+2025-12-25T10:02:11:   - Duration: 219ms
+2025-12-25T10:03:11: [DripWorker] ========================================
+2025-12-25T10:03:11: [DripWorker] Starting drip processing batch
+2025-12-25T10:03:11: [DripWorker] Time: 2025-12-25T04:33:11.682Z
+2025-12-25T10:03:11: [DripWorker] ========================================
+2025-12-25T10:03:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T10:03:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T10:03:11: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T10:03:11: [DripScheduler:Worker] No pending drips to process
+2025-12-25T10:03:11: [DripWorker] Batch complete:
+2025-12-25T10:03:11:   - Processed: 0
+2025-12-25T10:03:11:   - Sent: 0
+2025-12-25T10:03:11:   - Failed: 0
+2025-12-25T10:03:11:   - Skipped: 0
+2025-12-25T10:03:11:   - Duration: 220ms
+2025-12-25T10:04:11: [DripWorker] ========================================
+2025-12-25T10:04:11: [DripWorker] Starting drip processing batch
+2025-12-25T10:04:11: [DripWorker] Time: 2025-12-25T04:34:11.686Z
+2025-12-25T10:04:11: [DripWorker] ========================================
+2025-12-25T10:04:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T10:04:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T10:04:11: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T10:04:11: [DripScheduler:Worker] No pending drips to process
+2025-12-25T10:04:11: [DripWorker] Batch complete:
+2025-12-25T10:04:11:   - Processed: 0
+2025-12-25T10:04:11:   - Sent: 0
+2025-12-25T10:04:11:   - Failed: 0
+2025-12-25T10:04:11:   - Skipped: 0
+2025-12-25T10:04:11:   - Duration: 219ms
+2025-12-25T10:05:11: [DripWorker] ========================================
+2025-12-25T10:05:11: [DripWorker] Starting drip processing batch
+2025-12-25T10:05:11: [DripWorker] Time: 2025-12-25T04:35:11.702Z
+2025-12-25T10:05:11: [DripWorker] ========================================
+2025-12-25T10:05:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T10:05:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T10:05:11: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T10:05:11: [DripScheduler:Worker] No pending drips to process
+2025-12-25T10:05:11: [DripWorker] Batch complete:
+2025-12-25T10:05:11:   - Processed: 0
+2025-12-25T10:05:11:   - Sent: 0
+2025-12-25T10:05:11:   - Failed: 0
+2025-12-25T10:05:11:   - Skipped: 0
+2025-12-25T10:05:11:   - Duration: 217ms
+2025-12-25T10:06:11: [DripWorker] ========================================
+2025-12-25T10:06:11: [DripWorker] Starting drip processing batch
+2025-12-25T10:06:11: [DripWorker] Time: 2025-12-25T04:36:11.703Z
+2025-12-25T10:06:11: [DripWorker] ========================================
+2025-12-25T10:06:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T10:06:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T10:06:11: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T10:06:11: [DripScheduler:Worker] No pending drips to process
+2025-12-25T10:06:11: [DripWorker] Batch complete:
+2025-12-25T10:06:11:   - Processed: 0
+2025-12-25T10:06:11:   - Sent: 0
+2025-12-25T10:06:11:   - Failed: 0
+2025-12-25T10:06:11:   - Skipped: 0
+2025-12-25T10:06:11:   - Duration: 218ms
+2025-12-25T10:07:11: [DripWorker] ========================================
+2025-12-25T10:07:11: [DripWorker] Starting drip processing batch
+2025-12-25T10:07:11: [DripWorker] Time: 2025-12-25T04:37:11.705Z
+2025-12-25T10:07:11: [DripWorker] ========================================
+2025-12-25T10:07:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T10:07:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T10:07:11: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T10:07:11: [DripScheduler:Worker] No pending drips to process
+2025-12-25T10:07:11: [DripWorker] Batch complete:
+2025-12-25T10:07:11:   - Processed: 0
+2025-12-25T10:07:11:   - Sent: 0
+2025-12-25T10:07:11:   - Failed: 0
+2025-12-25T10:07:11:   - Skipped: 0
+2025-12-25T10:07:11:   - Duration: 220ms
+2025-12-25T10:08:11: [DripWorker] ========================================
+2025-12-25T10:08:11: [DripWorker] Starting drip processing batch
+2025-12-25T10:08:11: [DripWorker] Time: 2025-12-25T04:38:11.710Z
+2025-12-25T10:08:11: [DripWorker] ========================================
+2025-12-25T10:08:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T10:08:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T10:08:11: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T10:08:11: [DripScheduler:Worker] No pending drips to process
+2025-12-25T10:08:11: [DripWorker] Batch complete:
+2025-12-25T10:08:11:   - Processed: 0
+2025-12-25T10:08:11:   - Sent: 0
+2025-12-25T10:08:11:   - Failed: 0
+2025-12-25T10:08:11:   - Skipped: 0
+2025-12-25T10:08:11:   - Duration: 218ms
+2025-12-25T10:09:11: [DripWorker] ========================================
+2025-12-25T10:09:11: [DripWorker] Starting drip processing batch
+2025-12-25T10:09:11: [DripWorker] Time: 2025-12-25T04:39:11.715Z
+2025-12-25T10:09:11: [DripWorker] ========================================
+2025-12-25T10:09:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T10:09:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T10:09:11: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T10:09:11: [DripScheduler:Worker] No pending drips to process
+2025-12-25T10:09:11: [DripWorker] Batch complete:
+2025-12-25T10:09:11:   - Processed: 0
+2025-12-25T10:09:11:   - Sent: 0
+2025-12-25T10:09:11:   - Failed: 0
+2025-12-25T10:09:11:   - Skipped: 0
+2025-12-25T10:09:11:   - Duration: 216ms
+2025-12-25T10:10:11: [DripWorker] ========================================
+2025-12-25T10:10:11: [DripWorker] Starting drip processing batch
+2025-12-25T10:10:11: [DripWorker] Time: 2025-12-25T04:40:11.720Z
+2025-12-25T10:10:11: [DripWorker] ========================================
+2025-12-25T10:10:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T10:10:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T10:10:11: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T10:10:11: [DripScheduler:Worker] No pending drips to process
+2025-12-25T10:10:11: [DripWorker] Batch complete:
+2025-12-25T10:10:11:   - Processed: 0
+2025-12-25T10:10:11:   - Sent: 0
+2025-12-25T10:10:11:   - Failed: 0
+2025-12-25T10:10:11:   - Skipped: 0
+2025-12-25T10:10:11:   - Duration: 219ms
+2025-12-25T10:11:11: [DripWorker] ========================================
+2025-12-25T10:11:11: [DripWorker] Starting drip processing batch
+2025-12-25T10:11:11: [DripWorker] Time: 2025-12-25T04:41:11.722Z
+2025-12-25T10:11:11: [DripWorker] ========================================
+2025-12-25T10:11:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T10:11:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T10:11:11: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T10:11:11: [DripScheduler:Worker] No pending drips to process
+2025-12-25T10:11:11: [DripWorker] Batch complete:
+2025-12-25T10:11:11:   - Processed: 0
+2025-12-25T10:11:11:   - Sent: 0
+2025-12-25T10:11:11:   - Failed: 0
+2025-12-25T10:11:11:   - Skipped: 0
+2025-12-25T10:11:11:   - Duration: 220ms
+2025-12-25T10:12:11: [DripWorker] ========================================
+2025-12-25T10:12:11: [DripWorker] Starting drip processing batch
+2025-12-25T10:12:11: [DripWorker] Time: 2025-12-25T04:42:11.729Z
+2025-12-25T10:12:11: [DripWorker] ========================================
+2025-12-25T10:12:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T10:12:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T10:12:11: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T10:12:11: [DripScheduler:Worker] No pending drips to process
+2025-12-25T10:12:11: [DripWorker] Batch complete:
+2025-12-25T10:12:11:   - Processed: 0
+2025-12-25T10:12:11:   - Sent: 0
+2025-12-25T10:12:11:   - Failed: 0
+2025-12-25T10:12:11:   - Skipped: 0
+2025-12-25T10:12:11:   - Duration: 230ms
+2025-12-25T10:13:11: [DripWorker] ========================================
+2025-12-25T10:13:11: [DripWorker] Starting drip processing batch
+2025-12-25T10:13:11: [DripWorker] Time: 2025-12-25T04:43:11.730Z
+2025-12-25T10:13:11: [DripWorker] ========================================
+2025-12-25T10:13:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T10:13:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T10:13:11: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T10:13:11: [DripScheduler:Worker] No pending drips to process
+2025-12-25T10:13:11: [DripWorker] Batch complete:
+2025-12-25T10:13:11:   - Processed: 0
+2025-12-25T10:13:11:   - Sent: 0
+2025-12-25T10:13:11:   - Failed: 0
+2025-12-25T10:13:11:   - Skipped: 0
+2025-12-25T10:13:11:   - Duration: 217ms
+2025-12-25T10:14:11: [DripWorker] ========================================
+2025-12-25T10:14:11: [DripWorker] Starting drip processing batch
+2025-12-25T10:14:11: [DripWorker] Time: 2025-12-25T04:44:11.746Z
+2025-12-25T10:14:11: [DripWorker] ========================================
+2025-12-25T10:14:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T10:14:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T10:14:11: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T10:14:11: [DripScheduler:Worker] No pending drips to process
+2025-12-25T10:14:11: [DripWorker] Batch complete:
+2025-12-25T10:14:11:   - Processed: 0
+2025-12-25T10:14:11:   - Sent: 0
+2025-12-25T10:14:11:   - Failed: 0
+2025-12-25T10:14:11:   - Skipped: 0
+2025-12-25T10:14:11:   - Duration: 216ms
+2025-12-25T10:15:11: [DripWorker] ========================================
+2025-12-25T10:15:11: [DripWorker] Starting drip processing batch
+2025-12-25T10:15:11: [DripWorker] Time: 2025-12-25T04:45:11.753Z
+2025-12-25T10:15:11: [DripWorker] ========================================
+2025-12-25T10:15:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T10:15:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T10:15:11: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T10:15:11: [DripScheduler:Worker] No pending drips to process
+2025-12-25T10:15:11: [DripWorker] Batch complete:
+2025-12-25T10:15:11:   - Processed: 0
+2025-12-25T10:15:11:   - Sent: 0
+2025-12-25T10:15:11:   - Failed: 0
+2025-12-25T10:15:11:   - Skipped: 0
+2025-12-25T10:15:11:   - Duration: 221ms
+2025-12-25T10:16:11: [DripWorker] ========================================
+2025-12-25T10:16:11: [DripWorker] Starting drip processing batch
+2025-12-25T10:16:11: [DripWorker] Time: 2025-12-25T04:46:11.755Z
+2025-12-25T10:16:11: [DripWorker] ========================================
+2025-12-25T10:16:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T10:16:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T10:16:11: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T10:16:11: [DripScheduler:Worker] No pending drips to process
+2025-12-25T10:16:11: [DripWorker] Batch complete:
+2025-12-25T10:16:11:   - Processed: 0
+2025-12-25T10:16:11:   - Sent: 0
+2025-12-25T10:16:11:   - Failed: 0
+2025-12-25T10:16:11:   - Skipped: 0
+2025-12-25T10:16:11:   - Duration: 217ms
+2025-12-25T10:17:11: [DripWorker] ========================================
+2025-12-25T10:17:11: [DripWorker] Starting drip processing batch
+2025-12-25T10:17:11: [DripWorker] Time: 2025-12-25T04:47:11.766Z
+2025-12-25T10:17:11: [DripWorker] ========================================
+2025-12-25T10:17:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T10:17:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T10:17:11: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T10:17:11: [DripScheduler:Worker] No pending drips to process
+2025-12-25T10:17:11: [DripWorker] Batch complete:
+2025-12-25T10:17:11:   - Processed: 0
+2025-12-25T10:17:11:   - Sent: 0
+2025-12-25T10:17:11:   - Failed: 0
+2025-12-25T10:17:11:   - Skipped: 0
+2025-12-25T10:17:11:   - Duration: 218ms
+2025-12-25T10:18:11: [DripWorker] ========================================
+2025-12-25T10:18:11: [DripWorker] Starting drip processing batch
+2025-12-25T10:18:11: [DripWorker] Time: 2025-12-25T04:48:11.773Z
+2025-12-25T10:18:11: [DripWorker] ========================================
+2025-12-25T10:18:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T10:18:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T10:18:11: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T10:18:11: [DripScheduler:Worker] No pending drips to process
+2025-12-25T10:18:11: [DripWorker] Batch complete:
+2025-12-25T10:18:11:   - Processed: 0
+2025-12-25T10:18:11:   - Sent: 0
+2025-12-25T10:18:11:   - Failed: 0
+2025-12-25T10:18:11:   - Skipped: 0
+2025-12-25T10:18:11:   - Duration: 219ms
+2025-12-25T10:19:11: [DripWorker] ========================================
+2025-12-25T10:19:11: [DripWorker] Starting drip processing batch
+2025-12-25T10:19:11: [DripWorker] Time: 2025-12-25T04:49:11.784Z
+2025-12-25T10:19:11: [DripWorker] ========================================
+2025-12-25T10:19:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T10:19:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T10:19:12: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T10:19:12: [DripScheduler:Worker] No pending drips to process
+2025-12-25T10:19:12: [DripWorker] Batch complete:
+2025-12-25T10:19:12:   - Processed: 0
+2025-12-25T10:19:12:   - Sent: 0
+2025-12-25T10:19:12:   - Failed: 0
+2025-12-25T10:19:12:   - Skipped: 0
+2025-12-25T10:19:12:   - Duration: 218ms
+2025-12-25T10:20:11: [DripWorker] ========================================
+2025-12-25T10:20:11: [DripWorker] Starting drip processing batch
+2025-12-25T10:20:11: [DripWorker] Time: 2025-12-25T04:50:11.799Z
+2025-12-25T10:20:11: [DripWorker] ========================================
+2025-12-25T10:20:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T10:20:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T10:20:12: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T10:20:12: [DripScheduler:Worker] No pending drips to process
+2025-12-25T10:20:12: [DripWorker] Batch complete:
+2025-12-25T10:20:12:   - Processed: 0
+2025-12-25T10:20:12:   - Sent: 0
+2025-12-25T10:20:12:   - Failed: 0
+2025-12-25T10:20:12:   - Skipped: 0
+2025-12-25T10:20:12:   - Duration: 219ms
+2025-12-25T10:21:11: [DripWorker] ========================================
+2025-12-25T10:21:11: [DripWorker] Starting drip processing batch
+2025-12-25T10:21:11: [DripWorker] Time: 2025-12-25T04:51:11.802Z
+2025-12-25T10:21:11: [DripWorker] ========================================
+2025-12-25T10:21:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T10:21:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T10:21:12: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T10:21:12: [DripScheduler:Worker] No pending drips to process
+2025-12-25T10:21:12: [DripWorker] Batch complete:
+2025-12-25T10:21:12:   - Processed: 0
+2025-12-25T10:21:12:   - Sent: 0
+2025-12-25T10:21:12:   - Failed: 0
+2025-12-25T10:21:12:   - Skipped: 0
+2025-12-25T10:21:12:   - Duration: 218ms
+2025-12-25T10:22:11: [DripWorker] ========================================
+2025-12-25T10:22:11: [DripWorker] Starting drip processing batch
+2025-12-25T10:22:11: [DripWorker] Time: 2025-12-25T04:52:11.817Z
+2025-12-25T10:22:11: [DripWorker] ========================================
+2025-12-25T10:22:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T10:22:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T10:22:12: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T10:22:12: [DripScheduler:Worker] No pending drips to process
+2025-12-25T10:22:12: [DripWorker] Batch complete:
+2025-12-25T10:22:12:   - Processed: 0
+2025-12-25T10:22:12:   - Sent: 0
+2025-12-25T10:22:12:   - Failed: 0
+2025-12-25T10:22:12:   - Skipped: 0
+2025-12-25T10:22:12:   - Duration: 216ms
+2025-12-25T10:23:11: [DripWorker] ========================================
+2025-12-25T10:23:11: [DripWorker] Starting drip processing batch
+2025-12-25T10:23:11: [DripWorker] Time: 2025-12-25T04:53:11.826Z
+2025-12-25T10:23:11: [DripWorker] ========================================
+2025-12-25T10:23:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T10:23:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T10:23:12: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T10:23:12: [DripScheduler:Worker] No pending drips to process
+2025-12-25T10:23:12: [DripWorker] Batch complete:
+2025-12-25T10:23:12:   - Processed: 0
+2025-12-25T10:23:12:   - Sent: 0
+2025-12-25T10:23:12:   - Failed: 0
+2025-12-25T10:23:12:   - Skipped: 0
+2025-12-25T10:23:12:   - Duration: 217ms
+2025-12-25T10:24:11: [DripWorker] ========================================
+2025-12-25T10:24:11: [DripWorker] Starting drip processing batch
+2025-12-25T10:24:11: [DripWorker] Time: 2025-12-25T04:54:11.841Z
+2025-12-25T10:24:11: [DripWorker] ========================================
+2025-12-25T10:24:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T10:24:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T10:24:12: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T10:24:12: [DripScheduler:Worker] No pending drips to process
+2025-12-25T10:24:12: [DripWorker] Batch complete:
+2025-12-25T10:24:12:   - Processed: 0
+2025-12-25T10:24:12:   - Sent: 0
+2025-12-25T10:24:12:   - Failed: 0
+2025-12-25T10:24:12:   - Skipped: 0
+2025-12-25T10:24:12:   - Duration: 217ms
+2025-12-25T10:25:11: [DripWorker] ========================================
+2025-12-25T10:25:11: [DripWorker] Starting drip processing batch
+2025-12-25T10:25:11: [DripWorker] Time: 2025-12-25T04:55:11.854Z
+2025-12-25T10:25:11: [DripWorker] ========================================
+2025-12-25T10:25:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T10:25:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T10:25:12: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T10:25:12: [DripScheduler:Worker] No pending drips to process
+2025-12-25T10:25:12: [DripWorker] Batch complete:
+2025-12-25T10:25:12:   - Processed: 0
+2025-12-25T10:25:12:   - Sent: 0
+2025-12-25T10:25:12:   - Failed: 0
+2025-12-25T10:25:12:   - Skipped: 0
+2025-12-25T10:25:12:   - Duration: 217ms
+2025-12-25T10:26:11: [DripWorker] ========================================
+2025-12-25T10:26:11: [DripWorker] Starting drip processing batch
+2025-12-25T10:26:11: [DripWorker] Time: 2025-12-25T04:56:11.864Z
+2025-12-25T10:26:11: [DripWorker] ========================================
+2025-12-25T10:26:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T10:26:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T10:26:12: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T10:26:12: [DripScheduler:Worker] No pending drips to process
+2025-12-25T10:26:12: [DripWorker] Batch complete:
+2025-12-25T10:26:12:   - Processed: 0
+2025-12-25T10:26:12:   - Sent: 0
+2025-12-25T10:26:12:   - Failed: 0
+2025-12-25T10:26:12:   - Skipped: 0
+2025-12-25T10:26:12:   - Duration: 217ms
+2025-12-25T10:27:11: [DripWorker] ========================================
+2025-12-25T10:27:11: [DripWorker] Starting drip processing batch
+2025-12-25T10:27:11: [DripWorker] Time: 2025-12-25T04:57:11.870Z
+2025-12-25T10:27:11: [DripWorker] ========================================
+2025-12-25T10:27:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T10:27:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T10:27:12: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T10:27:12: [DripScheduler:Worker] No pending drips to process
+2025-12-25T10:27:12: [DripWorker] Batch complete:
+2025-12-25T10:27:12:   - Processed: 0
+2025-12-25T10:27:12:   - Sent: 0
+2025-12-25T10:27:12:   - Failed: 0
+2025-12-25T10:27:12:   - Skipped: 0
+2025-12-25T10:27:12:   - Duration: 216ms
+2025-12-25T10:28:11: [DripWorker] ========================================
+2025-12-25T10:28:11: [DripWorker] Starting drip processing batch
+2025-12-25T10:28:11: [DripWorker] Time: 2025-12-25T04:58:11.880Z
+2025-12-25T10:28:11: [DripWorker] ========================================
+2025-12-25T10:28:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T10:28:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T10:28:12: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T10:28:12: [DripScheduler:Worker] No pending drips to process
+2025-12-25T10:28:12: [DripWorker] Batch complete:
+2025-12-25T10:28:12:   - Processed: 0
+2025-12-25T10:28:12:   - Sent: 0
+2025-12-25T10:28:12:   - Failed: 0
+2025-12-25T10:28:12:   - Skipped: 0
+2025-12-25T10:28:12:   - Duration: 215ms
+2025-12-25T10:29:11: [DripWorker] ========================================
+2025-12-25T10:29:11: [DripWorker] Starting drip processing batch
+2025-12-25T10:29:11: [DripWorker] Time: 2025-12-25T04:59:11.882Z
+2025-12-25T10:29:11: [DripWorker] ========================================
+2025-12-25T10:29:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T10:29:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T10:29:12: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T10:29:12: [DripScheduler:Worker] No pending drips to process
+2025-12-25T10:29:12: [DripWorker] Batch complete:
+2025-12-25T10:29:12:   - Processed: 0
+2025-12-25T10:29:12:   - Sent: 0
+2025-12-25T10:29:12:   - Failed: 0
+2025-12-25T10:29:12:   - Skipped: 0
+2025-12-25T10:29:12:   - Duration: 219ms
+2025-12-25T10:30:11: [DripWorker] ========================================
+2025-12-25T10:30:11: [DripWorker] Starting drip processing batch
+2025-12-25T10:30:11: [DripWorker] Time: 2025-12-25T05:00:11.898Z
+2025-12-25T10:30:11: [DripWorker] ========================================
+2025-12-25T10:30:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T10:30:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T10:30:12: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T10:30:12: [DripScheduler:Worker] No pending drips to process
+2025-12-25T10:30:12: [DripWorker] Batch complete:
+2025-12-25T10:30:12:   - Processed: 0
+2025-12-25T10:30:12:   - Sent: 0
+2025-12-25T10:30:12:   - Failed: 0
+2025-12-25T10:30:12:   - Skipped: 0
+2025-12-25T10:30:12:   - Duration: 217ms
+2025-12-25T10:31:11: [DripWorker] ========================================
+2025-12-25T10:31:11: [DripWorker] Starting drip processing batch
+2025-12-25T10:31:11: [DripWorker] Time: 2025-12-25T05:01:11.919Z
+2025-12-25T10:31:11: [DripWorker] ========================================
+2025-12-25T10:31:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T10:31:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T10:31:12: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T10:31:12: [DripScheduler:Worker] No pending drips to process
+2025-12-25T10:31:12: [DripWorker] Batch complete:
+2025-12-25T10:31:12:   - Processed: 0
+2025-12-25T10:31:12:   - Sent: 0
+2025-12-25T10:31:12:   - Failed: 0
+2025-12-25T10:31:12:   - Skipped: 0
+2025-12-25T10:31:12:   - Duration: 217ms
+2025-12-25T10:32:11: [DripWorker] ========================================
+2025-12-25T10:32:11: [DripWorker] Starting drip processing batch
+2025-12-25T10:32:11: [DripWorker] Time: 2025-12-25T05:02:11.929Z
+2025-12-25T10:32:11: [DripWorker] ========================================
+2025-12-25T10:32:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T10:32:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T10:32:12: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T10:32:12: [DripScheduler:Worker] No pending drips to process
+2025-12-25T10:32:12: [DripWorker] Batch complete:
+2025-12-25T10:32:12:   - Processed: 0
+2025-12-25T10:32:12:   - Sent: 0
+2025-12-25T10:32:12:   - Failed: 0
+2025-12-25T10:32:12:   - Skipped: 0
+2025-12-25T10:32:12:   - Duration: 217ms
+2025-12-25T10:33:11: [DripWorker] ========================================
+2025-12-25T10:33:11: [DripWorker] Starting drip processing batch
+2025-12-25T10:33:11: [DripWorker] Time: 2025-12-25T05:03:11.933Z
+2025-12-25T10:33:11: [DripWorker] ========================================
+2025-12-25T10:33:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T10:33:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T10:33:12: [DripScheduler:Worker] Found pending drips: 1
+2025-12-25T10:33:12: [DripScheduler:Worker] Processing drips: { total: 1, concurrencyLimit: 25 }
+2025-12-25T10:33:12: [DripScheduler:Worker] Pre-fetching user numbers for 1 users...
+2025-12-25T10:33:12: [DripScheduler:Worker] Pre-fetched numbers for 1 users
+2025-12-25T10:33:12: [DripScheduler:Worker] Processing batch: { batchStart: 0, batchSize: 1, totalDrips: 1 }
+2025-12-25T10:33:12: [DripScheduler:Worker] Executing drip: {
+2025-12-25T10:33:12:   id: '3',
+2025-12-25T10:33:12:   dripId: 'aa69ce1a-cf03-43ca-8c19-20e20a20a9fb',
+2025-12-25T10:33:12:   contactId: '8',
+2025-12-25T10:33:12:   contactName: 'test'
+2025-12-25T10:33:12: }
+2025-12-25T10:33:12: [DripScheduler:Worker] Using pre-fetched FROM number: +1 445 273 0962
+2025-12-25T10:33:12: [DripScheduler:Worker] Sending drip message: { to: '+919723738044', from: '+1 445 273 0962', messageLength: 119 }
+2025-12-25T10:33:12: [Message:Worker] sendMessage: {
+2025-12-25T10:33:12:   userId: '169ac94b-7e1e-4c96-8b7f-94ce49846986',
+2025-12-25T10:33:12:   contactId: '8',
+2025-12-25T10:33:12:   sid: '1',
+2025-12-25T10:33:12:   messageLength: 119,
+2025-12-25T10:33:12:   isDrip: true
+2025-12-25T10:33:12: }
+2025-12-25T10:33:13: [Message:Worker] Message record created: { id: '21', bRef: 'DM-1766638993605-645481' }
+2025-12-25T10:33:13: [Message:Worker] Sending via Twilio: { from: '+1 445 273 0962', to: '+919723738044' }
+2025-12-25T10:33:13: [Twilio] sendSMS called: {
+2025-12-25T10:33:13:   from: '+1 445 273 0962',
+2025-12-25T10:33:13:   to: '+919723738044',
+2025-12-25T10:33:13:   bodyLength: 119,
+2025-12-25T10:33:13:   hasMedia: false,
+2025-12-25T10:33:13:   hasCallback: true
+2025-12-25T10:33:13: }
+2025-12-25T10:33:13: [Twilio] Initializing client with SID: ACce1dfd26...
+2025-12-25T10:33:14: [Twilio] Sending message: { from: '+14452730962', to: '+919723738044', bodyLength: 119 }
+2025-12-25T10:33:14: [Twilio] Message sent successfully: { sid: 'SM9b47b1a16ab8b03736bc879f5c5c35a3', status: 'queued' }
+2025-12-25T10:33:15: [Message:Worker] Message sent successfully: {
+2025-12-25T10:33:15:   id: '21',
+2025-12-25T10:33:15:   bRef: 'DM-1766638993605-645481',
+2025-12-25T10:33:15:   twilioSid: 'SM9b47b1a16ab8b03736bc879f5c5c35a3'
+2025-12-25T10:33:15: }
+2025-12-25T10:33:15: [DripScheduler:Worker] Drip sent successfully: { messageId: '21', bRef: 'DM-1766638993605-645481' }
+2025-12-25T10:33:16: [DripScheduler:Worker] Batch complete, processed so far: 1
+2025-12-25T10:33:16: [DripScheduler:Worker] Batch complete: {
+2025-12-25T10:33:16:   processed: 1,
+2025-12-25T10:33:16:   sent: 1,
+2025-12-25T10:33:16:   failed: 0,
+2025-12-25T10:33:16:   skipped: 0,
+2025-12-25T10:33:16:   errors: [],
+2025-12-25T10:33:16:   durationMs: 4402,
+2025-12-25T10:33:16:   dripsPerSecond: 0
+2025-12-25T10:33:16: }
+2025-12-25T10:33:16: [DripWorker] Batch complete:
+2025-12-25T10:33:16:   - Processed: 1
+2025-12-25T10:33:16:   - Sent: 1
+2025-12-25T10:33:16:   - Failed: 0
+2025-12-25T10:33:16:   - Skipped: 0
+2025-12-25T10:33:16:   - Duration: 4402ms
+2025-12-25T10:34:11: [DripWorker] ========================================
+2025-12-25T10:34:11: [DripWorker] Starting drip processing batch
+2025-12-25T10:34:11: [DripWorker] Time: 2025-12-25T05:04:11.936Z
+2025-12-25T10:34:11: [DripWorker] ========================================
+2025-12-25T10:34:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T10:34:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T10:34:12: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T10:34:12: [DripScheduler:Worker] No pending drips to process
+2025-12-25T10:34:12: [DripWorker] Batch complete:
+2025-12-25T10:34:12:   - Processed: 0
+2025-12-25T10:34:12:   - Sent: 0
+2025-12-25T10:34:12:   - Failed: 0
+2025-12-25T10:34:12:   - Skipped: 0
+2025-12-25T10:34:12:   - Duration: 218ms
+2025-12-25T10:35:11: [DripWorker] ========================================
+2025-12-25T10:35:11: [DripWorker] Starting drip processing batch
+2025-12-25T10:35:11: [DripWorker] Time: 2025-12-25T05:05:11.943Z
+2025-12-25T10:35:11: [DripWorker] ========================================
+2025-12-25T10:35:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T10:35:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T10:35:12: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T10:35:12: [DripScheduler:Worker] No pending drips to process
+2025-12-25T10:35:12: [DripWorker] Batch complete:
+2025-12-25T10:35:12:   - Processed: 0
+2025-12-25T10:35:12:   - Sent: 0
+2025-12-25T10:35:12:   - Failed: 0
+2025-12-25T10:35:12:   - Skipped: 0
+2025-12-25T10:35:12:   - Duration: 216ms
+2025-12-25T10:36:11: [DripWorker] ========================================
+2025-12-25T10:36:11: [DripWorker] Starting drip processing batch
+2025-12-25T10:36:11: [DripWorker] Time: 2025-12-25T05:06:11.945Z
+2025-12-25T10:36:11: [DripWorker] ========================================
+2025-12-25T10:36:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T10:36:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T10:36:12: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T10:36:12: [DripScheduler:Worker] No pending drips to process
+2025-12-25T10:36:12: [DripWorker] Batch complete:
+2025-12-25T10:36:12:   - Processed: 0
+2025-12-25T10:36:12:   - Sent: 0
+2025-12-25T10:36:12:   - Failed: 0
+2025-12-25T10:36:12:   - Skipped: 0
+2025-12-25T10:36:12:   - Duration: 218ms
+2025-12-25T10:37:11: [DripWorker] ========================================
+2025-12-25T10:37:11: [DripWorker] Starting drip processing batch
+2025-12-25T10:37:11: [DripWorker] Time: 2025-12-25T05:07:11.958Z
+2025-12-25T10:37:11: [DripWorker] ========================================
+2025-12-25T10:37:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T10:37:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T10:37:12: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T10:37:12: [DripScheduler:Worker] No pending drips to process
+2025-12-25T10:37:12: [DripWorker] Batch complete:
+2025-12-25T10:37:12:   - Processed: 0
+2025-12-25T10:37:12:   - Sent: 0
+2025-12-25T10:37:12:   - Failed: 0
+2025-12-25T10:37:12:   - Skipped: 0
+2025-12-25T10:37:12:   - Duration: 217ms
+2025-12-25T10:38:11: [DripWorker] ========================================
+2025-12-25T10:38:11: [DripWorker] Starting drip processing batch
+2025-12-25T10:38:11: [DripWorker] Time: 2025-12-25T05:08:11.967Z
+2025-12-25T10:38:11: [DripWorker] ========================================
+2025-12-25T10:38:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T10:38:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T10:38:12: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T10:38:12: [DripScheduler:Worker] No pending drips to process
+2025-12-25T10:38:12: [DripWorker] Batch complete:
+2025-12-25T10:38:12:   - Processed: 0
+2025-12-25T10:38:12:   - Sent: 0
+2025-12-25T10:38:12:   - Failed: 0
+2025-12-25T10:38:12:   - Skipped: 0
+2025-12-25T10:38:12:   - Duration: 217ms
+2025-12-25T10:39:11: [DripWorker] ========================================
+2025-12-25T10:39:11: [DripWorker] Starting drip processing batch
+2025-12-25T10:39:11: [DripWorker] Time: 2025-12-25T05:09:11.976Z
+2025-12-25T10:39:11: [DripWorker] ========================================
+2025-12-25T10:39:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T10:39:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T10:39:12: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T10:39:12: [DripScheduler:Worker] No pending drips to process
+2025-12-25T10:39:12: [DripWorker] Batch complete:
+2025-12-25T10:39:12:   - Processed: 0
+2025-12-25T10:39:12:   - Sent: 0
+2025-12-25T10:39:12:   - Failed: 0
+2025-12-25T10:39:12:   - Skipped: 0
+2025-12-25T10:39:12:   - Duration: 215ms
+2025-12-25T10:40:11: [DripWorker] ========================================
+2025-12-25T10:40:11: [DripWorker] Starting drip processing batch
+2025-12-25T10:40:11: [DripWorker] Time: 2025-12-25T05:10:11.985Z
+2025-12-25T10:40:11: [DripWorker] ========================================
+2025-12-25T10:40:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T10:40:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T10:40:12: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T10:40:12: [DripScheduler:Worker] No pending drips to process
+2025-12-25T10:40:12: [DripWorker] Batch complete:
+2025-12-25T10:40:12:   - Processed: 0
+2025-12-25T10:40:12:   - Sent: 0
+2025-12-25T10:40:12:   - Failed: 0
+2025-12-25T10:40:12:   - Skipped: 0
+2025-12-25T10:40:12:   - Duration: 215ms
+2025-12-25T10:41:11: [DripWorker] ========================================
+2025-12-25T10:41:11: [DripWorker] Starting drip processing batch
+2025-12-25T10:41:11: [DripWorker] Time: 2025-12-25T05:11:11.992Z
+2025-12-25T10:41:11: [DripWorker] ========================================
+2025-12-25T10:41:11: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T10:41:11: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T10:41:12: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T10:41:12: [DripScheduler:Worker] No pending drips to process
+2025-12-25T10:41:12: [DripWorker] Batch complete:
+2025-12-25T10:41:12:   - Processed: 0
+2025-12-25T10:41:12:   - Sent: 0
+2025-12-25T10:41:12:   - Failed: 0
+2025-12-25T10:41:12:   - Skipped: 0
+2025-12-25T10:41:12:   - Duration: 218ms
+2025-12-25T10:42:13: [DripWorker] Running as standalone process
+2025-12-25T10:42:13: [DripWorker] ========================================
+2025-12-25T10:42:13: [DripWorker] Starting Drip Worker
+2025-12-25T10:42:13: [DripWorker] Batch Size: 200
+2025-12-25T10:42:13: [DripWorker] Interval: 60000 ms
+2025-12-25T10:42:13: [DripWorker] ========================================
+2025-12-25T10:42:13: [DripWorker] ========================================
+2025-12-25T10:42:13: [DripWorker] Starting drip processing batch
+2025-12-25T10:42:13: [DripWorker] Time: 2025-12-25T05:12:13.008Z
+2025-12-25T10:42:13: [DripWorker] ========================================
+2025-12-25T10:42:13: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T10:42:13: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T10:42:13: [DripWorker] Worker started successfully
+2025-12-25T10:42:14: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T10:42:14: [DripScheduler:Worker] No pending drips to process
+2025-12-25T10:42:14: [DripWorker] Batch complete:
+2025-12-25T10:42:14:   - Processed: 0
+2025-12-25T10:42:14:   - Sent: 0
+2025-12-25T10:42:14:   - Failed: 0
+2025-12-25T10:42:14:   - Skipped: 0
+2025-12-25T10:42:14:   - Duration: 1279ms
+2025-12-25T10:42:14: [Workers:INFO] [Workers] Database reader connection established successfully
+2025-12-25T10:42:14: [Workers] Database reader connection established successfully
+2025-12-25T10:42:15: [Workers:INFO] [Workers] Database writer connection established successfully
+2025-12-25T10:42:15: [Workers] Database writer connection established successfully
+2025-12-25T10:42:57: [DripWorker] Running as standalone process
+2025-12-25T10:42:57: [DripWorker] ========================================
+2025-12-25T10:42:57: [DripWorker] Starting Drip Worker
+2025-12-25T10:42:57: [DripWorker] Batch Size: 200
+2025-12-25T10:42:57: [DripWorker] Interval: 60000 ms
+2025-12-25T10:42:57: [DripWorker] ========================================
+2025-12-25T10:42:57: [DripWorker] ========================================
+2025-12-25T10:42:57: [DripWorker] Starting drip processing batch
+2025-12-25T10:42:57: [DripWorker] Time: 2025-12-25T05:12:57.618Z
+2025-12-25T10:42:57: [DripWorker] ========================================
+2025-12-25T10:42:57: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T10:42:57: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T10:42:57: [DripWorker] Worker started successfully
+2025-12-25T10:42:58: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T10:42:58: [DripScheduler:Worker] No pending drips to process
+2025-12-25T10:42:58: [DripWorker] Batch complete:
+2025-12-25T10:42:58:   - Processed: 0
+2025-12-25T10:42:58:   - Sent: 0
+2025-12-25T10:42:58:   - Failed: 0
+2025-12-25T10:42:58:   - Skipped: 0
+2025-12-25T10:42:58:   - Duration: 1297ms
+2025-12-25T10:42:59: [Workers:INFO] [Workers] Database reader connection established successfully
+2025-12-25T10:42:59: [Workers] Database reader connection established successfully
+2025-12-25T10:43:00: [Workers:INFO] [Workers] Database writer connection established successfully
+2025-12-25T10:43:00: [Workers] Database writer connection established successfully
+2025-12-25T10:43:57: [DripWorker] ========================================
+2025-12-25T10:43:57: [DripWorker] Starting drip processing batch
+2025-12-25T10:43:57: [DripWorker] Time: 2025-12-25T05:13:57.635Z
+2025-12-25T10:43:57: [DripWorker] ========================================
+2025-12-25T10:43:57: [DripScheduler:Worker] Starting drip processing batch...
+2025-12-25T10:43:57: [DripScheduler:Worker] Fetching pending drips...
+2025-12-25T10:43:57: [DripScheduler:Worker] Found pending drips: 0
+2025-12-25T10:43:57: [DripScheduler:Worker] No pending drips to process
+2025-12-25T10:43:57: [DripWorker] Batch complete:
+2025-12-25T10:43:57:   - Processed: 0
+2025-12-25T10:43:57:   - Sent: 0
+2025-12-25T10:43:57:   - Failed: 0
+2025-12-25T10:43:57:   - Skipped: 0
+2025-12-25T10:43:57:   - Duration: 242ms

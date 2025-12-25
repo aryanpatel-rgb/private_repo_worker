@@ -1,0 +1,44 @@
+2025-12-25T09:34:11: [StatusWorker] Running as standalone process
+2025-12-25T09:34:11: [Workers:RabbitMQ] Connecting to: amqp://inbox_user:****@localhost:5672
+2025-12-25T09:34:11: [Workers:RabbitMQ] Connected and queues initialized
+2025-12-25T09:34:11: [Workers:INFO] [Workers:RabbitMQ] Connected and queues initialized
+2025-12-25T09:34:11: [StatusWorker] ========================================
+2025-12-25T09:34:11: [StatusWorker] Starting Status Update Worker
+2025-12-25T09:34:11: [StatusWorker] ========================================
+2025-12-25T09:34:11: [StatusWorker] Starting consumer...
+2025-12-25T09:34:11: [StatusWorker] Consumer started
+2025-12-25T09:34:11: [StatusWorker] Worker started successfully
+2025-12-25T09:34:12: [Workers:INFO] [Workers] Database reader connection established successfully
+2025-12-25T09:34:12: [Workers] Database reader connection established successfully
+2025-12-25T09:34:14: [Workers:INFO] [Workers] Database writer connection established successfully
+2025-12-25T09:34:14: [Workers] Database writer connection established successfully
+2025-12-25T10:15:09: [StatusWorker] Processing status update: { messageSid: 'SM123', status: 'delivered', bRef: 'test123' }
+2025-12-25T10:15:09: [StatusWorker] Updating delivery status: { bRef: 'test123', status: 'delivered', messageSid: 'SM123' }
+2025-12-25T10:42:13: [StatusWorker] Running as standalone process
+2025-12-25T10:42:13: [Workers:RabbitMQ] Connecting to: amqp://inbox_user:****@localhost:5672
+2025-12-25T10:42:13: [Workers:RabbitMQ] Connected and queues initialized
+2025-12-25T10:42:13: [Workers:INFO] [Workers:RabbitMQ] Connected and queues initialized
+2025-12-25T10:42:13: [StatusWorker] ========================================
+2025-12-25T10:42:13: [StatusWorker] Starting Status Update Worker
+2025-12-25T10:42:13: [StatusWorker] ========================================
+2025-12-25T10:42:13: [StatusWorker] Starting consumer...
+2025-12-25T10:42:13: [StatusWorker] Consumer started
+2025-12-25T10:42:13: [StatusWorker] Worker started successfully
+2025-12-25T10:42:14: [Workers:INFO] [Workers] Database reader connection established successfully
+2025-12-25T10:42:14: [Workers] Database reader connection established successfully
+2025-12-25T10:42:15: [Workers:INFO] [Workers] Database writer connection established successfully
+2025-12-25T10:42:15: [Workers] Database writer connection established successfully
+2025-12-25T10:42:58: [StatusWorker] Running as standalone process
+2025-12-25T10:42:58: [Workers:RabbitMQ] Connecting to: amqp://inbox_user:****@localhost:5672
+2025-12-25T10:42:58: [Workers:RabbitMQ] Connected and queues initialized
+2025-12-25T10:42:58: [Workers:INFO] [Workers:RabbitMQ] Connected and queues initialized
+2025-12-25T10:42:58: [StatusWorker] ========================================
+2025-12-25T10:42:58: [StatusWorker] Starting Status Update Worker
+2025-12-25T10:42:58: [StatusWorker] ========================================
+2025-12-25T10:42:58: [StatusWorker] Starting consumer...
+2025-12-25T10:42:58: [StatusWorker] Consumer started
+2025-12-25T10:42:58: [StatusWorker] Worker started successfully
+2025-12-25T10:42:59: [Workers:INFO] [Workers] Database reader connection established successfully
+2025-12-25T10:42:59: [Workers] Database reader connection established successfully
+2025-12-25T10:43:00: [Workers:INFO] [Workers] Database writer connection established successfully
+2025-12-25T10:43:00: [Workers] Database writer connection established successfully

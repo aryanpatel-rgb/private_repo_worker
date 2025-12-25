@@ -1,0 +1,51 @@
+2025-12-25T09:34:11: [InboundWorker] Running as standalone process
+2025-12-25T09:34:11: [Workers:RabbitMQ] Connecting to: amqp://inbox_user:****@localhost:5672
+2025-12-25T09:34:11: [Workers:RabbitMQ] Connected and queues initialized
+2025-12-25T09:34:11: [Workers:INFO] [Workers:RabbitMQ] Connected and queues initialized
+2025-12-25T09:34:11: [InboundWorker] ========================================
+2025-12-25T09:34:11: [InboundWorker] Starting Inbound Message Worker
+2025-12-25T09:34:11: [InboundWorker] ========================================
+2025-12-25T09:34:11: [InboundWorker] Starting consumer...
+2025-12-25T09:34:11: [Workers:RabbitMQ] Starting consumer for queue: inbox.inbound.message
+2025-12-25T09:34:11: [Workers:RabbitMQ] Consumer started for: inbox.inbound.message
+2025-12-25T09:34:11: [Workers:INFO] [Workers:RabbitMQ] Consumer started for: inbox.inbound.message
+2025-12-25T09:34:11: [InboundWorker] Consumer started
+2025-12-25T09:34:11: [InboundWorker] Worker started successfully
+2025-12-25T09:34:12: [Workers:INFO] [Workers] Database reader connection established successfully
+2025-12-25T09:34:12: [Workers] Database reader connection established successfully
+2025-12-25T09:34:14: [Workers:INFO] [Workers] Database writer connection established successfully
+2025-12-25T09:34:14: [Workers] Database writer connection established successfully
+2025-12-25T10:42:13: [InboundWorker] Running as standalone process
+2025-12-25T10:42:13: [Workers:RabbitMQ] Connecting to: amqp://inbox_user:****@localhost:5672
+2025-12-25T10:42:13: [Workers:RabbitMQ] Connected and queues initialized
+2025-12-25T10:42:13: [Workers:INFO] [Workers:RabbitMQ] Connected and queues initialized
+2025-12-25T10:42:13: [InboundWorker] ========================================
+2025-12-25T10:42:13: [InboundWorker] Starting Inbound Message Worker
+2025-12-25T10:42:13: [InboundWorker] ========================================
+2025-12-25T10:42:13: [InboundWorker] Starting consumer...
+2025-12-25T10:42:13: [Workers:RabbitMQ] Starting consumer for queue: inbox.inbound.message
+2025-12-25T10:42:13: [Workers:RabbitMQ] Consumer started for: inbox.inbound.message
+2025-12-25T10:42:13: [Workers:INFO] [Workers:RabbitMQ] Consumer started for: inbox.inbound.message
+2025-12-25T10:42:13: [InboundWorker] Consumer started
+2025-12-25T10:42:13: [InboundWorker] Worker started successfully
+2025-12-25T10:42:14: [Workers:INFO] [Workers] Database reader connection established successfully
+2025-12-25T10:42:14: [Workers] Database reader connection established successfully
+2025-12-25T10:42:15: [Workers:INFO] [Workers] Database writer connection established successfully
+2025-12-25T10:42:15: [Workers] Database writer connection established successfully
+2025-12-25T10:42:57: [InboundWorker] Running as standalone process
+2025-12-25T10:42:57: [Workers:RabbitMQ] Connecting to: amqp://inbox_user:****@localhost:5672
+2025-12-25T10:42:58: [Workers:RabbitMQ] Connected and queues initialized
+2025-12-25T10:42:58: [Workers:INFO] [Workers:RabbitMQ] Connected and queues initialized
+2025-12-25T10:42:58: [InboundWorker] ========================================
+2025-12-25T10:42:58: [InboundWorker] Starting Inbound Message Worker
+2025-12-25T10:42:58: [InboundWorker] ========================================
+2025-12-25T10:42:58: [InboundWorker] Starting consumer...
+2025-12-25T10:42:58: [Workers:RabbitMQ] Starting consumer for queue: inbox.inbound.message
+2025-12-25T10:42:58: [Workers:RabbitMQ] Consumer started for: inbox.inbound.message
+2025-12-25T10:42:58: [Workers:INFO] [Workers:RabbitMQ] Consumer started for: inbox.inbound.message
+2025-12-25T10:42:58: [InboundWorker] Consumer started
+2025-12-25T10:42:58: [InboundWorker] Worker started successfully
+2025-12-25T10:42:59: [Workers:INFO] [Workers] Database reader connection established successfully
+2025-12-25T10:42:59: [Workers] Database reader connection established successfully
+2025-12-25T10:43:00: [Workers:INFO] [Workers] Database writer connection established successfully
+2025-12-25T10:43:00: [Workers] Database writer connection established successfully

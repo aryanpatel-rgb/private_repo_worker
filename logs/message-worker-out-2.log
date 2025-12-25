@@ -1,0 +1,54 @@
+2025-12-25T09:34:11: [MessageWorker] Running as standalone process
+2025-12-25T09:34:11: [MessageWorker] ========================================
+2025-12-25T09:34:11: [MessageWorker] Starting Message Worker
+2025-12-25T09:34:11: [MessageWorker] Prefetch: 10
+2025-12-25T09:34:11: [MessageWorker] ========================================
+2025-12-25T09:34:11: [Workers:RabbitMQ] Connecting to: amqp://inbox_user:****@localhost:5672
+2025-12-25T09:34:11: [Workers:RabbitMQ] Connected and queues initialized
+2025-12-25T09:34:11: [Workers:INFO] [Workers:RabbitMQ] Connected and queues initialized
+2025-12-25T09:34:11: [MessageWorker] Starting consumer...
+2025-12-25T09:34:11: [Workers:RabbitMQ] Starting consumer for queue: inbox.send.message
+2025-12-25T09:34:11: [Workers:RabbitMQ] Consumer started for: inbox.send.message
+2025-12-25T09:34:11: [Workers:INFO] [Workers:RabbitMQ] Consumer started for: inbox.send.message
+2025-12-25T09:34:11: [MessageWorker] Consumer started
+2025-12-25T09:34:11: [MessageWorker] Worker started successfully
+2025-12-25T09:34:12: [Workers:INFO] [Workers] Database reader connection established successfully
+2025-12-25T09:34:12: [Workers] Database reader connection established successfully
+2025-12-25T09:34:14: [Workers:INFO] [Workers] Database writer connection established successfully
+2025-12-25T09:34:14: [Workers] Database writer connection established successfully
+2025-12-25T10:42:13: [MessageWorker] Running as standalone process
+2025-12-25T10:42:13: [MessageWorker] ========================================
+2025-12-25T10:42:13: [MessageWorker] Starting Message Worker
+2025-12-25T10:42:13: [MessageWorker] Prefetch: 10
+2025-12-25T10:42:13: [MessageWorker] ========================================
+2025-12-25T10:42:13: [Workers:RabbitMQ] Connecting to: amqp://inbox_user:****@localhost:5672
+2025-12-25T10:42:13: [Workers:RabbitMQ] Connected and queues initialized
+2025-12-25T10:42:13: [Workers:INFO] [Workers:RabbitMQ] Connected and queues initialized
+2025-12-25T10:42:13: [MessageWorker] Starting consumer...
+2025-12-25T10:42:13: [Workers:RabbitMQ] Starting consumer for queue: inbox.send.message
+2025-12-25T10:42:13: [Workers:RabbitMQ] Consumer started for: inbox.send.message
+2025-12-25T10:42:13: [Workers:INFO] [Workers:RabbitMQ] Consumer started for: inbox.send.message
+2025-12-25T10:42:13: [MessageWorker] Consumer started
+2025-12-25T10:42:13: [MessageWorker] Worker started successfully
+2025-12-25T10:42:14: [Workers:INFO] [Workers] Database reader connection established successfully
+2025-12-25T10:42:14: [Workers] Database reader connection established successfully
+2025-12-25T10:42:15: [Workers:INFO] [Workers] Database writer connection established successfully
+2025-12-25T10:42:15: [Workers] Database writer connection established successfully
+2025-12-25T10:42:57: [MessageWorker] Running as standalone process
+2025-12-25T10:42:57: [MessageWorker] ========================================
+2025-12-25T10:42:57: [MessageWorker] Starting Message Worker
+2025-12-25T10:42:57: [MessageWorker] Prefetch: 10
+2025-12-25T10:42:57: [MessageWorker] ========================================
+2025-12-25T10:42:57: [Workers:RabbitMQ] Connecting to: amqp://inbox_user:****@localhost:5672
+2025-12-25T10:42:57: [Workers:RabbitMQ] Connected and queues initialized
+2025-12-25T10:42:57: [Workers:INFO] [Workers:RabbitMQ] Connected and queues initialized
+2025-12-25T10:42:57: [MessageWorker] Starting consumer...
+2025-12-25T10:42:57: [Workers:RabbitMQ] Starting consumer for queue: inbox.send.message
+2025-12-25T10:42:57: [Workers:RabbitMQ] Consumer started for: inbox.send.message
+2025-12-25T10:42:57: [Workers:INFO] [Workers:RabbitMQ] Consumer started for: inbox.send.message
+2025-12-25T10:42:57: [MessageWorker] Consumer started
+2025-12-25T10:42:57: [MessageWorker] Worker started successfully
+2025-12-25T10:42:59: [Workers:INFO] [Workers] Database reader connection established successfully
+2025-12-25T10:42:59: [Workers] Database reader connection established successfully
+2025-12-25T10:43:00: [Workers:INFO] [Workers] Database writer connection established successfully
+2025-12-25T10:43:00: [Workers] Database writer connection established successfully
