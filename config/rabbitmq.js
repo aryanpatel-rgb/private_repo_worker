@@ -17,13 +17,19 @@ const QUEUES = {
     SEND_MESSAGE: 'inbox.send.message',
     INBOUND_MESSAGE: 'inbox.inbound.message',
     STATUS_UPDATE: 'inbox.status.update',
-    NOTIFICATION: 'inbox.notification'
+    NOTIFICATION: 'inbox.notification',
+    // High-scale drip queues
+    DRIP_MESSAGES: 'drip.messages.queue',
+    DRIP_DEAD_LETTER: 'drip.dead.letter'
 };
 
 // Exchange names
 const EXCHANGES = {
     INBOX: 'inbox.exchange',
-    INBOX_DLX: 'inbox.dlx'
+    INBOX_DLX: 'inbox.dlx',
+    // High-scale drip exchanges
+    DRIP: 'drip.exchange',
+    DRIP_DLX: 'drip.dlx'
 };
 
 // Routing keys
@@ -32,7 +38,10 @@ const ROUTING_KEYS = {
     INBOUND: 'inbound',
     STATUS: 'status',
     NOTIFY: 'notify',
-    FAILED: 'failed'
+    FAILED: 'failed',
+    // Drip routing keys
+    DRIP_SEND: 'drip.send',
+    DRIP_FAILED: 'drip.failed'
 };
 
 /**
@@ -86,7 +95,35 @@ const connect = async () => {
         await channel.bindQueue(QUEUES.STATUS_UPDATE, EXCHANGES.INBOX, ROUTING_KEYS.STATUS);
         await channel.bindQueue(QUEUES.NOTIFICATION, EXCHANGES.INBOX, ROUTING_KEYS.NOTIFY);
 
-        console.log('[Workers:RabbitMQ] Connected and queues initialized');
+        // ============================================
+        // HIGH-SCALE DRIP QUEUES
+        // ============================================
+        await channel.assertExchange(EXCHANGES.DRIP, 'direct', { durable: true });
+        await channel.assertExchange(EXCHANGES.DRIP_DLX, 'direct', { durable: true });
+
+        // Drip messages queue
+        await channel.assertQueue(QUEUES.DRIP_MESSAGES, {
+            durable: true,
+            deadLetterExchange: EXCHANGES.DRIP_DLX,
+            deadLetterRoutingKey: ROUTING_KEYS.DRIP_FAILED,
+            arguments: {
+                'x-message-ttl': 3600000 // 1 hour TTL
+            }
+        });
+
+        // Drip dead letter queue
+        await channel.assertQueue(QUEUES.DRIP_DEAD_LETTER, {
+            durable: true,
+            arguments: {
+                'x-message-ttl': 604800000 // 7 days TTL
+            }
+        });
+
+        // Bind drip queues
+        await channel.bindQueue(QUEUES.DRIP_MESSAGES, EXCHANGES.DRIP, ROUTING_KEYS.DRIP_SEND);
+        await channel.bindQueue(QUEUES.DRIP_DEAD_LETTER, EXCHANGES.DRIP_DLX, ROUTING_KEYS.DRIP_FAILED);
+
+        console.log('[Workers:RabbitMQ] Connected and queues initialized (including drip queues)');
         logger.info('[Workers:RabbitMQ] Connected and queues initialized');
 
         // Handle connection errors

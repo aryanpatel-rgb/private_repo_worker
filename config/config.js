@@ -73,6 +73,18 @@ const CONFIG = {
         RATE_LIMIT_DELAY: parseInt(process.env.DRIP_RATE_LIMIT_DELAY || '50', 10)
     },
 
+    // High-Scale Drip Configuration (RabbitMQ-based)
+    HIGH_SCALE_DRIP: {
+        ENABLED: process.env.DRIP_HIGH_SCALE_ENABLED === 'true',
+        PRE_QUEUE_WORKER_INTERVAL: parseInt(process.env.PRE_QUEUE_WORKER_INTERVAL || '60000', 10),
+        PRE_QUEUE_MINUTES: parseInt(process.env.DRIP_PRE_QUEUE_MINUTES || '10', 10),
+        PRE_QUEUE_BATCH: parseInt(process.env.DRIP_PRE_QUEUE_BATCH || '1000', 10),
+        CONSUMER_PREFETCH: parseInt(process.env.DRIP_CONSUMER_PREFETCH || '10', 10),
+        RATE_LIMIT_MS: parseInt(process.env.DRIP_RATE_LIMIT_MS || '50', 10),
+        MAX_RETRY: parseInt(process.env.DRIP_MAX_RETRY || '3', 10),
+        BULK_INSERT_SIZE: parseInt(process.env.DRIP_BULK_INSERT_SIZE || '500', 10)
+    },
+
     MESSAGE_WORKER: {
         ENABLED: process.env.MESSAGE_WORKER_ENABLED !== 'false',
         PREFETCH: parseInt(process.env.MESSAGE_PREFETCH || '10', 10)

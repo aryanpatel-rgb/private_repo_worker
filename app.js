@@ -46,6 +46,10 @@ const inboundWorker = require('./workers/inboundWorker');
 const statusWorker = require('./workers/statusWorker');
 const dripWorker = require('./workers/dripWorker');
 
+// High-Scale Drip Workers (RabbitMQ-based)
+const preQueueWorker = require('./workers/preQueueWorker');
+const messageConsumer = require('./workers/messageConsumer');
+
 console.log('');
 console.log('╔════════════════════════════════════════════════════════════╗');
 console.log('║                    SENGINE WORKERS                         ║');
@@ -56,7 +60,9 @@ console.log('║  Workers:                                                  ║'
 console.log('║  ├── Message Worker    : Send SMS via Twilio              ║');
 console.log('║  ├── Inbound Worker    : Process incoming messages        ║');
 console.log('║  ├── Status Worker     : Update delivery status           ║');
-console.log('║  └── Drip Scheduler    : Schedule drip campaigns          ║');
+console.log('║  └── Drip Workers      : High-Scale Drip Processing       ║');
+console.log('║      ├── PreQueue      : Push scheduled → RabbitMQ        ║');
+console.log('║      └── Consumer      : RabbitMQ → Twilio                ║');
 console.log('║                                                            ║');
 console.log('╚════════════════════════════════════════════════════════════╝');
 console.log('');
@@ -69,7 +75,9 @@ console.log('Workers Status:');
 console.log('  Message Worker :', CONFIG.MESSAGE_WORKER.ENABLED ? '✓ Enabled' : '✗ Disabled');
 console.log('  Inbound Worker :', CONFIG.MESSAGE_WORKER.ENABLED ? '✓ Enabled' : '✗ Disabled');
 console.log('  Status Worker  :', CONFIG.MESSAGE_WORKER.ENABLED ? '✓ Enabled' : '✗ Disabled');
-console.log('  Drip Scheduler :', CONFIG.DRIP_WORKER.ENABLED ? '✓ Enabled' : '✗ Disabled');
+console.log('  Drip Legacy    :', CONFIG.DRIP_WORKER.ENABLED ? '✓ Enabled' : '✗ Disabled (using High-Scale)');
+console.log('  Drip PreQueue  :', CONFIG.HIGH_SCALE_DRIP.ENABLED ? '✓ Enabled' : '✗ Disabled');
+console.log('  Drip Consumer  :', CONFIG.HIGH_SCALE_DRIP.ENABLED ? '✓ Enabled' : '✗ Disabled');
 console.log('');
 
 /**
@@ -111,14 +119,32 @@ const startWorkers = async () => {
             console.log('[App] Status Worker started ✓');
         }
 
-        // Start Drip Scheduler (checks what drip messages to send NOW)
+        // Start Legacy Drip Scheduler (checks what drip messages to send NOW)
+        // NOTE: This is DISABLED when using HIGH-SCALE mode
         if (CONFIG.DRIP_WORKER.ENABLED) {
-            console.log('[App] Starting Drip Scheduler...');
-            // Delay drip worker to allow other workers to initialize
+            console.log('[App] Starting Legacy Drip Scheduler...');
             setTimeout(() => {
                 dripWorker.start();
-                console.log('[App] Drip Scheduler started ✓');
+                console.log('[App] Legacy Drip Scheduler started ✓');
             }, 3000);
+        }
+
+        // Start HIGH-SCALE Drip Workers (RabbitMQ-based)
+        // This is the recommended mode for handling 50K+ contacts
+        if (CONFIG.HIGH_SCALE_DRIP.ENABLED) {
+            console.log('[App] Starting High-Scale Drip Workers...');
+
+            // Start PreQueue Worker (pushes scheduled_messages to RabbitMQ)
+            setTimeout(async () => {
+                await preQueueWorker.start();
+                console.log('[App] PreQueue Worker started ✓');
+            }, 3000);
+
+            // Start Message Consumer (consumes from RabbitMQ, sends via Twilio)
+            setTimeout(async () => {
+                await messageConsumer.start();
+                console.log('[App] Message Consumer started ✓');
+            }, 4000);
         }
 
         console.log('');
@@ -151,10 +177,17 @@ const shutdown = async (signal) => {
         // Stop queue monitor
         stopQueueMonitor();
 
-        // Stop Drip Scheduler first (it doesn't need RabbitMQ)
+        // Stop Legacy Drip Scheduler first (it doesn't need RabbitMQ)
         if (CONFIG.DRIP_WORKER.ENABLED) {
-            console.log('[App] Stopping Drip Scheduler...');
+            console.log('[App] Stopping Legacy Drip Scheduler...');
             dripWorker.stop();
+        }
+
+        // Stop High-Scale Drip Workers
+        if (CONFIG.HIGH_SCALE_DRIP.ENABLED) {
+            console.log('[App] Stopping High-Scale Drip Workers...');
+            await preQueueWorker.stop();
+            await messageConsumer.stop();
         }
 
         // Stop Message Worker
