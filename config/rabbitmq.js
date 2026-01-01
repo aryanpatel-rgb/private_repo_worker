@@ -20,7 +20,9 @@ const QUEUES = {
     NOTIFICATION: 'inbox.notification',
     // High-scale drip queues
     DRIP_MESSAGES: 'drip.messages.queue',
-    DRIP_DEAD_LETTER: 'drip.dead.letter'
+    DRIP_DEAD_LETTER: 'drip.dead.letter',
+    // Webhook queue
+    WEBHOOK: 'webhook.dispatch.queue'
 };
 
 // Exchange names
@@ -41,7 +43,9 @@ const ROUTING_KEYS = {
     FAILED: 'failed',
     // Drip routing keys
     DRIP_SEND: 'drip.send',
-    DRIP_FAILED: 'drip.failed'
+    DRIP_FAILED: 'drip.failed',
+    // Webhook routing key
+    WEBHOOK: 'webhook'
 };
 
 /**
@@ -123,7 +127,18 @@ const connect = async () => {
         await channel.bindQueue(QUEUES.DRIP_MESSAGES, EXCHANGES.DRIP, ROUTING_KEYS.DRIP_SEND);
         await channel.bindQueue(QUEUES.DRIP_DEAD_LETTER, EXCHANGES.DRIP_DLX, ROUTING_KEYS.DRIP_FAILED);
 
-        console.log('[Workers:RabbitMQ] Connected and queues initialized (including drip queues)');
+        // ============================================
+        // WEBHOOK QUEUE
+        // ============================================
+        await channel.assertQueue(QUEUES.WEBHOOK, {
+            durable: true,
+            arguments: {
+                'x-message-ttl': 86400000 // 24 hours TTL
+            }
+        });
+        await channel.bindQueue(QUEUES.WEBHOOK, EXCHANGES.INBOX, ROUTING_KEYS.WEBHOOK);
+
+        console.log('[Workers:RabbitMQ] Connected and queues initialized (including drip and webhook queues)');
         logger.info('[Workers:RabbitMQ] Connected and queues initialized');
 
         // Handle connection errors

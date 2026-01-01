@@ -1,6 +1,21 @@
 /**
- * Message Consumer Worker for sengine-workers
- * Consumes drip messages from RabbitMQ and sends via Twilio
+ * Message Consumer Worker for sengine-workers (HIGH-SCALE MODE)
+ *
+ * This worker is part of the high-scale drip processing pipeline:
+ * scheduled_messages (DB) → PreQueueWorker → RabbitMQ → MessageConsumer → Twilio
+ *
+ * Features:
+ * - Consumes drip messages from RabbitMQ queue
+ * - Validates contact (not opted out, not blocked)
+ * - Checks and deducts user credits
+ * - Sends SMS via Twilio with rate limiting
+ * - Updates scheduled_messages and drip_contact status
+ * - Scalable: Run multiple instances for higher throughput
+ *
+ * Scaling:
+ * - Single instance: ~40 msg/sec (with 25ms rate limit)
+ * - 4 instances: ~160 msg/sec = 576K msg/hour
+ * - Use: pm2 scale workers N
  *
  * Run standalone: node workers/messageConsumer.js
  * Or as part of main app: require('./workers/messageConsumer').start()

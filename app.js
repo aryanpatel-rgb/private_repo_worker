@@ -1,34 +1,43 @@
 /**
- * sengine-workers - Main Entry Point
+ * sengine-workers - Main Entry Point (HIGH-SCALE MODE)
  *
  * This application runs background workers for:
  * - Message sending (SEND_MESSAGE queue)
  * - Inbound message processing (INBOUND_MESSAGE queue)
  * - Delivery status updates (STATUS_UPDATE queue)
- * - Drip campaign scheduling (cron job)
+ * - Webhook dispatching (WEBHOOK queue)
+ * - High-Scale Drip processing (scheduled_messages → RabbitMQ → Twilio)
  *
  * Architecture:
- * ┌─────────────────────────────────────────────────────────────────┐
- * │                      SENGINE-WORKERS                            │
- * │                                                                 │
- * │  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐             │
- * │  │   Message   │  │   Inbound   │  │   Status    │             │
- * │  │   Worker    │  │   Worker    │  │   Worker    │             │
- * │  │             │  │             │  │             │             │
- * │  │ Sends SMS   │  │ Processes   │  │ Updates     │             │
- * │  │ via Twilio  │  │ incoming    │  │ delivery    │             │
- * │  └─────────────┘  └─────────────┘  └─────────────┘             │
- * │                                                                 │
- * │  ┌─────────────────────────────────────────────────┐           │
- * │  │              Drip Scheduler                      │           │
- * │  │                                                  │           │
- * │  │  Runs every minute to check what drip messages  │           │
- * │  │  need to be sent NOW and queues them            │           │
- * │  └─────────────────────────────────────────────────┘           │
- * └─────────────────────────────────────────────────────────────────┘
+ * ┌─────────────────────────────────────────────────────────────────────┐
+ * │                    SENGINE-WORKERS (HIGH-SCALE)                     │
+ * │                                                                     │
+ * │  MESSAGE WORKERS:                                                   │
+ * │  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐  ┌───────────┐  │
+ * │  │  Outbound   │  │   Inbound   │  │  Delivery   │  │  Webhook  │  │
+ * │  │   Worker    │  │   Worker    │  │   Report    │  │   Worker  │  │
+ * │  │  (Twilio)   │  │  (Process)  │  │  (Status)   │  │ (Dispatch)│  │
+ * │  └─────────────┘  └─────────────┘  └─────────────┘  └───────────┘  │
+ * │                                                                     │
+ * │  HIGH-SCALE DRIP WORKERS:                                           │
+ * │  ┌─────────────────────────────────────────────────────────────┐   │
+ * │  │                     RabbitMQ Pipeline                        │   │
+ * │  │                                                              │   │
+ * │  │  ┌──────────────┐      ┌──────────────┐      ┌───────────┐  │   │
+ * │  │  │  PreQueue    │ ───► │   RabbitMQ   │ ───► │  Message  │  │   │
+ * │  │  │   Worker     │      │    Queue     │      │  Consumer │  │   │
+ * │  │  │              │      │              │      │ (Scalable)│  │   │
+ * │  │  │ DB → Queue   │      │ drip.messages│      │ → Twilio  │  │   │
+ * │  │  └──────────────┘      └──────────────┘      └───────────┘  │   │
+ * │  │                                                              │   │
+ * │  │  Throughput: 50K-100K+ messages/day                          │   │
+ * │  │  Scale with: pm2 scale workers N                             │   │
+ * │  └─────────────────────────────────────────────────────────────┘   │
+ * └─────────────────────────────────────────────────────────────────────┘
  *
  * Run with: node app.js
  * Or via PM2: pm2 start ecosystem.config.js
+ * Scale workers: pm2 scale workers 4 (for 4x throughput)
  */
 
 const path = require('path');
@@ -41,28 +50,32 @@ const { logger } = require('./services/logger.service');
 const rabbitmq = require('./config/rabbitmq');
 
 // Import workers
-const messageWorker = require('./workers/messageWorker');
-const inboundWorker = require('./workers/inboundWorker');
-const statusWorker = require('./workers/statusWorker');
-const dripWorker = require('./workers/dripWorker');
+const outboundMessageWorker = require('./workers/outboundMessageWorker');
+const inboundMessageWorker = require('./workers/inboundMessageWorker');
+const deliveryReportWorker = require('./workers/deliveryReportWorker');
+const webhookWorker = require('./workers/webhookWorker');
 
-// High-Scale Drip Workers (RabbitMQ-based)
+// High-Scale Drip Workers (RabbitMQ-based) - This is the ONLY drip processing mode
 const preQueueWorker = require('./workers/preQueueWorker');
 const messageConsumer = require('./workers/messageConsumer');
 
 console.log('');
 console.log('╔════════════════════════════════════════════════════════════╗');
 console.log('║                    SENGINE WORKERS                         ║');
-console.log('║              Background Processing Service                 ║');
+console.log('║         Background Processing Service (HIGH-SCALE)         ║');
 console.log('╠════════════════════════════════════════════════════════════╣');
 console.log('║                                                            ║');
-console.log('║  Workers:                                                  ║');
-console.log('║  ├── Message Worker    : Send SMS via Twilio              ║');
+console.log('║  Message Workers:                                          ║');
+console.log('║  ├── Outbound Worker   : Send SMS via Twilio              ║');
 console.log('║  ├── Inbound Worker    : Process incoming messages        ║');
-console.log('║  ├── Status Worker     : Update delivery status           ║');
-console.log('║  └── Drip Workers      : High-Scale Drip Processing       ║');
-console.log('║      ├── PreQueue      : Push scheduled → RabbitMQ        ║');
-console.log('║      └── Consumer      : RabbitMQ → Twilio                ║');
+console.log('║  ├── Delivery Report   : Update delivery status           ║');
+console.log('║  └── Webhook Worker    : Dispatch user webhooks           ║');
+console.log('║                                                            ║');
+console.log('║  High-Scale Drip Workers (RabbitMQ-based):                 ║');
+console.log('║  ├── PreQueue Worker   : scheduled_messages → RabbitMQ    ║');
+console.log('║  └── Message Consumer  : RabbitMQ → Twilio (scalable)     ║');
+console.log('║                                                            ║');
+console.log('║  Scale consumers: pm2 scale workers N                      ║');
 console.log('║                                                            ║');
 console.log('╚════════════════════════════════════════════════════════════╝');
 console.log('');
@@ -72,12 +85,18 @@ console.log('  Database       :', CONFIG.DB.DATABASE_URL ? 'Connected via URL' :
 console.log('  RabbitMQ       :', CONFIG.RABBITMQ.ENABLED ? 'Enabled' : 'Disabled');
 console.log('');
 console.log('Workers Status:');
-console.log('  Message Worker :', CONFIG.MESSAGE_WORKER.ENABLED ? '✓ Enabled' : '✗ Disabled');
-console.log('  Inbound Worker :', CONFIG.MESSAGE_WORKER.ENABLED ? '✓ Enabled' : '✗ Disabled');
-console.log('  Status Worker  :', CONFIG.MESSAGE_WORKER.ENABLED ? '✓ Enabled' : '✗ Disabled');
-console.log('  Drip Legacy    :', CONFIG.DRIP_WORKER.ENABLED ? '✓ Enabled' : '✗ Disabled (using High-Scale)');
-console.log('  Drip PreQueue  :', CONFIG.HIGH_SCALE_DRIP.ENABLED ? '✓ Enabled' : '✗ Disabled');
-console.log('  Drip Consumer  :', CONFIG.HIGH_SCALE_DRIP.ENABLED ? '✓ Enabled' : '✗ Disabled');
+console.log('  Outbound Worker   :', CONFIG.MESSAGE_WORKER.ENABLED ? '✓ Enabled' : '✗ Disabled');
+console.log('  Inbound Worker    :', CONFIG.MESSAGE_WORKER.ENABLED ? '✓ Enabled' : '✗ Disabled');
+console.log('  Delivery Report   :', CONFIG.MESSAGE_WORKER.ENABLED ? '✓ Enabled' : '✗ Disabled');
+console.log('  Webhook Worker    :', CONFIG.MESSAGE_WORKER.ENABLED ? '✓ Enabled' : '✗ Disabled');
+console.log('');
+console.log('High-Scale Drip:');
+console.log('  PreQueue Worker   :', CONFIG.HIGH_SCALE_DRIP.ENABLED ? '✓ Enabled' : '✗ Disabled');
+console.log('  Message Consumer  :', CONFIG.HIGH_SCALE_DRIP.ENABLED ? '✓ Enabled' : '✗ Disabled');
+console.log('  PreQueue Interval :', CONFIG.HIGH_SCALE_DRIP.PRE_QUEUE_WORKER_INTERVAL + 'ms');
+console.log('  PreQueue Batch    :', CONFIG.HIGH_SCALE_DRIP.PRE_QUEUE_BATCH);
+console.log('  Consumer Prefetch :', CONFIG.HIGH_SCALE_DRIP.CONSUMER_PREFETCH);
+console.log('  Rate Limit        :', CONFIG.HIGH_SCALE_DRIP.RATE_LIMIT_MS + 'ms');
 console.log('');
 
 /**
@@ -98,53 +117,62 @@ const startWorkers = async () => {
         // Give RabbitMQ connection time to stabilize
         await new Promise(resolve => setTimeout(resolve, 2000));
 
-        // Start Message Worker (sends SMS via Twilio)
+        // Start Outbound Message Worker (sends SMS via Twilio)
         if (CONFIG.MESSAGE_WORKER.ENABLED) {
-            console.log('[App] Starting Message Worker...');
-            await messageWorker.start();
-            console.log('[App] Message Worker started ✓');
+            console.log('[App] Starting Outbound Message Worker...');
+            await outboundMessageWorker.start();
+            console.log('[App] Outbound Message Worker started ✓');
         }
 
-        // Start Inbound Worker (processes incoming messages)
+        // Start Inbound Message Worker (processes incoming messages)
         if (CONFIG.MESSAGE_WORKER.ENABLED) {
-            console.log('[App] Starting Inbound Worker...');
-            await inboundWorker.start();
-            console.log('[App] Inbound Worker started ✓');
+            console.log('[App] Starting Inbound Message Worker...');
+            await inboundMessageWorker.start();
+            console.log('[App] Inbound Message Worker started ✓');
         }
 
-        // Start Status Worker (updates delivery status)
+        // Start Delivery Report Worker (updates delivery status)
         if (CONFIG.MESSAGE_WORKER.ENABLED) {
-            console.log('[App] Starting Status Worker...');
-            await statusWorker.start();
-            console.log('[App] Status Worker started ✓');
+            console.log('[App] Starting Delivery Report Worker...');
+            await deliveryReportWorker.start();
+            console.log('[App] Delivery Report Worker started ✓');
         }
 
-        // Start Legacy Drip Scheduler (checks what drip messages to send NOW)
-        // NOTE: This is DISABLED when using HIGH-SCALE mode
-        if (CONFIG.DRIP_WORKER.ENABLED) {
-            console.log('[App] Starting Legacy Drip Scheduler...');
-            setTimeout(() => {
-                dripWorker.start();
-                console.log('[App] Legacy Drip Scheduler started ✓');
-            }, 3000);
+        // Start Webhook Worker (dispatches user webhooks)
+        if (CONFIG.MESSAGE_WORKER.ENABLED) {
+            console.log('[App] Starting Webhook Worker...');
+            await webhookWorker.start();
+            console.log('[App] Webhook Worker started ✓');
         }
 
-        // Start HIGH-SCALE Drip Workers (RabbitMQ-based)
-        // This is the recommended mode for handling 50K+ contacts
+        // =======================================================================
+        // HIGH-SCALE DRIP WORKERS (RabbitMQ-based)
+        // This is the ONLY drip processing mode - optimized for 100K+ msgs/day
+        // Architecture: PreQueueWorker → RabbitMQ → MessageConsumer(s) → Twilio
+        // =======================================================================
         if (CONFIG.HIGH_SCALE_DRIP.ENABLED) {
             console.log('[App] Starting High-Scale Drip Workers...');
 
             // Start PreQueue Worker (pushes scheduled_messages to RabbitMQ)
+            // Runs on interval, checks for messages ready to send
             setTimeout(async () => {
                 await preQueueWorker.start();
                 console.log('[App] PreQueue Worker started ✓');
+                console.log(`     └─ Interval: ${CONFIG.HIGH_SCALE_DRIP.PRE_QUEUE_WORKER_INTERVAL}ms`);
+                console.log(`     └─ Look-ahead: ${CONFIG.HIGH_SCALE_DRIP.PRE_QUEUE_MINUTES} minutes`);
+                console.log(`     └─ Batch size: ${CONFIG.HIGH_SCALE_DRIP.PRE_QUEUE_BATCH}`);
             }, 3000);
 
             // Start Message Consumer (consumes from RabbitMQ, sends via Twilio)
+            // This is the scalable component - run multiple instances for higher throughput
             setTimeout(async () => {
                 await messageConsumer.start();
                 console.log('[App] Message Consumer started ✓');
+                console.log(`     └─ Prefetch: ${CONFIG.HIGH_SCALE_DRIP.CONSUMER_PREFETCH}`);
+                console.log(`     └─ Rate limit: ${CONFIG.HIGH_SCALE_DRIP.RATE_LIMIT_MS}ms`);
             }, 4000);
+        } else {
+            console.warn('[App] ⚠️  High-Scale Drip is DISABLED - no drip messages will be sent!');
         }
 
         console.log('');
@@ -177,35 +205,26 @@ const shutdown = async (signal) => {
         // Stop queue monitor
         stopQueueMonitor();
 
-        // Stop Legacy Drip Scheduler first (it doesn't need RabbitMQ)
-        if (CONFIG.DRIP_WORKER.ENABLED) {
-            console.log('[App] Stopping Legacy Drip Scheduler...');
-            dripWorker.stop();
-        }
-
-        // Stop High-Scale Drip Workers
+        // Stop High-Scale Drip Workers first (they have active consumers)
         if (CONFIG.HIGH_SCALE_DRIP.ENABLED) {
             console.log('[App] Stopping High-Scale Drip Workers...');
             await preQueueWorker.stop();
             await messageConsumer.stop();
         }
 
-        // Stop Message Worker
+        // Stop Message Workers
         if (CONFIG.MESSAGE_WORKER.ENABLED) {
-            console.log('[App] Stopping Message Worker...');
-            await messageWorker.stop();
-        }
+            console.log('[App] Stopping Outbound Message Worker...');
+            await outboundMessageWorker.stop();
 
-        // Stop Inbound Worker
-        if (CONFIG.MESSAGE_WORKER.ENABLED) {
-            console.log('[App] Stopping Inbound Worker...');
-            await inboundWorker.stop();
-        }
+            console.log('[App] Stopping Inbound Message Worker...');
+            await inboundMessageWorker.stop();
 
-        // Stop Status Worker
-        if (CONFIG.MESSAGE_WORKER.ENABLED) {
-            console.log('[App] Stopping Status Worker...');
-            await statusWorker.stop();
+            console.log('[App] Stopping Delivery Report Worker...');
+            await deliveryReportWorker.stop();
+
+            console.log('[App] Stopping Webhook Worker...');
+            await webhookWorker.stop();
         }
 
         // Close RabbitMQ connection

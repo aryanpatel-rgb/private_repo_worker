@@ -1,5 +1,5 @@
 /**
- * Status Update Worker for sengine-workers
+ * Delivery Report Worker for sengine-workers
  * Processes delivery status updates from Twilio webhooks
  *
  * This worker:
@@ -7,7 +7,7 @@
  * - Updates message delivery_status in database
  * - Publishes WebSocket notifications for real-time UI updates
  *
- * @module workers/statusWorker
+ * @module workers/deliveryReportWorker
  */
 
 const path = require('path');
@@ -19,6 +19,7 @@ const { logger } = require('../services/logger.service');
 const rabbitmq = require('../config/rabbitmq');
 const { dbReader, dbWriter } = require('../config/database');
 const { to } = require('../services/util.service');
+const webhookProducer = require('../services/webhook/webhookProducer.service');
 const CONFIG = require('../config/config');
 
 let isRunning = false;
@@ -40,7 +41,7 @@ const STATUS_MAP = {
  * Update message delivery status in database
  */
 const updateDeliveryStatus = async (bRef, status, messageSid, errorCode = null) => {
-    console.log('[StatusWorker] Updating delivery status:', { bRef, status, messageSid });
+    console.log('[DeliveryReportWorker] Updating delivery status:', { bRef, status, messageSid });
 
     try {
         // Find message by b_ref or msg_id
@@ -55,7 +56,7 @@ const updateDeliveryStatus = async (bRef, status, messageSid, errorCode = null) 
         );
 
         if (!message) {
-            console.warn('[StatusWorker] Message not found:', { bRef, messageSid });
+            console.warn('[DeliveryReportWorker] Message not found:', { bRef, messageSid });
             return { success: false, error: 'Message not found' };
         }
 
@@ -81,12 +82,12 @@ const updateDeliveryStatus = async (bRef, status, messageSid, errorCode = null) 
         );
 
         if (updateErr) {
-            console.error('[StatusWorker] Error updating message:', updateErr);
-            logger.error('[StatusWorker] Error updating message:', updateErr);
+            console.error('[DeliveryReportWorker] Error updating message:', updateErr);
+            logger.error('[DeliveryReportWorker] Error updating message:', updateErr);
             return { success: false, error: updateErr.message };
         }
 
-        console.log('[StatusWorker] Status updated:', {
+        console.log('[DeliveryReportWorker] Status updated:', {
             messageId: message.id,
             oldStatus: message.delivery_status,
             newStatus: status
@@ -104,8 +105,8 @@ const updateDeliveryStatus = async (bRef, status, messageSid, errorCode = null) 
         };
 
     } catch (error) {
-        console.error('[StatusWorker] updateDeliveryStatus error:', error);
-        logger.error('[StatusWorker] updateDeliveryStatus error:', error);
+        console.error('[DeliveryReportWorker] updateDeliveryStatus error:', error);
+        logger.error('[DeliveryReportWorker] updateDeliveryStatus error:', error);
         return { success: false, error: error.message };
     }
 };
@@ -121,9 +122,9 @@ const publishNotification = async (channel, data) => {
             data: data,
             timestamp: Date.now()
         });
-        console.log('[StatusWorker] Published notification:', channel);
+        console.log('[DeliveryReportWorker] Published notification:', channel);
     } catch (error) {
-        console.error('[StatusWorker] Failed to publish notification:', error.message);
+        console.error('[DeliveryReportWorker] Failed to publish notification:', error.message);
     }
 };
 
@@ -133,7 +134,7 @@ const publishNotification = async (channel, data) => {
 const handleStatusUpdate = async (payload) => {
     const { data } = payload;
 
-    console.log('[StatusWorker] Processing status update:', {
+    console.log('[DeliveryReportWorker] Processing status update:', {
         messageSid: data.messageSid,
         status: data.status,
         bRef: data.bRef
@@ -168,9 +169,34 @@ const handleStatusUpdate = async (payload) => {
                     errorCode: data.errorCode,
                     errorMessage: data.errorMessage || 'Message delivery failed'
                 });
+
+                // Trigger webhook for message failed (non-blocking)
+                webhookProducer.queueMessageFailedEvent({
+                    userId: result.message.user_id,
+                    workspaceId: result.message.workspace_id,
+                    messageId: result.message.id,
+                    contactId: result.message.contact_id,
+                    errorCode: data.errorCode,
+                    errorMessage: data.errorMessage || 'Message delivery failed'
+                }).catch(err => {
+                    console.error('[DeliveryReportWorker] Webhook error:', err.message);
+                });
             }
 
-            console.log('[StatusWorker] Status update processed:', {
+            // Trigger webhook for message delivered (non-blocking)
+            if (data.status === 'delivered') {
+                webhookProducer.queueMessageDeliveredEvent({
+                    userId: result.message.user_id,
+                    workspaceId: result.message.workspace_id,
+                    messageId: result.message.id,
+                    contactId: result.message.contact_id,
+                    status: data.status
+                }).catch(err => {
+                    console.error('[DeliveryReportWorker] Webhook error:', err.message);
+                });
+            }
+
+            console.log('[DeliveryReportWorker] Status update processed:', {
                 messageId: result.message.id,
                 status: data.status
             });
@@ -178,13 +204,13 @@ const handleStatusUpdate = async (payload) => {
             return { success: true };
 
         } else {
-            console.warn('[StatusWorker] Status update failed:', result.error);
+            console.warn('[DeliveryReportWorker] Status update failed:', result.error);
             return { success: false, error: result.error };
         }
 
     } catch (error) {
-        console.error('[StatusWorker] Error processing status update:', error);
-        logger.error('[StatusWorker] Error:', error);
+        console.error('[DeliveryReportWorker] Error processing status update:', error);
+        logger.error('[DeliveryReportWorker] Error:', error);
         throw error;
     }
 };
@@ -194,7 +220,7 @@ const handleStatusUpdate = async (payload) => {
  */
 const startConsumer = async () => {
     try {
-        console.log('[StatusWorker] Starting consumer...');
+        console.log('[DeliveryReportWorker] Starting consumer...');
 
         const channel = rabbitmq.getChannel();
 
@@ -205,7 +231,7 @@ const startConsumer = async () => {
             try {
                 payload = JSON.parse(msg.content.toString());
             } catch (parseError) {
-                console.error('[StatusWorker] Failed to parse message:', parseError);
+                console.error('[DeliveryReportWorker] Failed to parse message:', parseError);
                 channel.nack(msg, false, false);
                 return;
             }
@@ -215,18 +241,18 @@ const startConsumer = async () => {
                 // Always ACK status updates (don't retry - Twilio sends multiple)
                 channel.ack(msg);
             } catch (error) {
-                console.error('[StatusWorker] Error handling status update:', error);
+                console.error('[DeliveryReportWorker] Error handling status update:', error);
                 // ACK anyway - status updates are not critical enough to retry
                 // Twilio will send multiple status updates, so missing one is not fatal
                 channel.ack(msg);
             }
         }, { noAck: false });
 
-        console.log('[StatusWorker] Consumer started');
+        console.log('[DeliveryReportWorker] Consumer started');
         isRunning = true;
 
     } catch (error) {
-        logger.error('[StatusWorker] Failed to start consumer:', error);
+        logger.error('[DeliveryReportWorker] Failed to start consumer:', error);
         throw error;
     }
 };
@@ -235,9 +261,9 @@ const startConsumer = async () => {
  * Start the status worker
  */
 const start = async () => {
-    console.log('[StatusWorker] ========================================');
-    console.log('[StatusWorker] Starting Status Update Worker');
-    console.log('[StatusWorker] ========================================');
+    console.log('[DeliveryReportWorker] ========================================');
+    console.log('[DeliveryReportWorker] Starting Delivery Report Worker');
+    console.log('[DeliveryReportWorker] ========================================');
 
     try {
         // Connect to RabbitMQ if not already connected
@@ -248,10 +274,10 @@ const start = async () => {
         // Start consuming
         await startConsumer();
 
-        console.log('[StatusWorker] Worker started successfully');
+        console.log('[DeliveryReportWorker] Worker started successfully');
 
     } catch (error) {
-        logger.error('[StatusWorker] Failed to start:', error);
+        logger.error('[DeliveryReportWorker] Failed to start:', error);
         throw error;
     }
 };
@@ -260,9 +286,9 @@ const start = async () => {
  * Stop the status worker
  */
 const stop = async () => {
-    console.log('[StatusWorker] Stopping worker...');
+    console.log('[DeliveryReportWorker] Stopping worker...');
     isRunning = false;
-    console.log('[StatusWorker] Worker stopped');
+    console.log('[DeliveryReportWorker] Worker stopped');
 };
 
 /**
@@ -281,17 +307,17 @@ module.exports = {
 
 // If running as standalone script
 if (require.main === module) {
-    console.log('[StatusWorker] Running as standalone process');
+    console.log('[DeliveryReportWorker] Running as standalone process');
 
     // Handle graceful shutdown
     process.on('SIGINT', async () => {
-        console.log('\n[StatusWorker] Received SIGINT, shutting down...');
+        console.log('\n[DeliveryReportWorker] Received SIGINT, shutting down...');
         await stop();
         process.exit(0);
     });
 
     process.on('SIGTERM', async () => {
-        console.log('\n[StatusWorker] Received SIGTERM, shutting down...');
+        console.log('\n[DeliveryReportWorker] Received SIGTERM, shutting down...');
         await stop();
         process.exit(0);
     });
@@ -299,7 +325,7 @@ if (require.main === module) {
     // Start the worker
     rabbitmq.connect().then(() => {
         start().catch((error) => {
-            console.error('[StatusWorker] Fatal error:', error);
+            console.error('[DeliveryReportWorker] Fatal error:', error);
             process.exit(1);
         });
     });

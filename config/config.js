@@ -63,26 +63,32 @@ const CONFIG = {
         STATUS_CALLBACK_URL: process.env.TWILIO_STATUS_CALLBACK_URL || ''
     },
 
-    DRIP_WORKER: {
-        ENABLED: process.env.DRIP_WORKER_ENABLED !== 'false',
-        BATCH_SIZE: parseInt(process.env.DRIP_BATCH_SIZE || '200', 10),
-        INTERVAL_MS: parseInt(process.env.DRIP_INTERVAL_MS || '60000', 10),
-        MAX_RETRIES: parseInt(process.env.DRIP_MAX_RETRIES || '3', 10),
-        BULK_BATCH_SIZE: parseInt(process.env.DRIP_BULK_BATCH_SIZE || '500', 10),
-        CONCURRENT_LIMIT: parseInt(process.env.DRIP_CONCURRENT_LIMIT || '25', 10),
-        RATE_LIMIT_DELAY: parseInt(process.env.DRIP_RATE_LIMIT_DELAY || '50', 10)
-    },
-
-    // High-Scale Drip Configuration (RabbitMQ-based)
+    // ==========================================================================
+    // HIGH-SCALE DRIP CONFIGURATION (RabbitMQ-based)
+    // ==========================================================================
+    // This is the ONLY drip mode - optimized for very high volume (100K+ msgs/day)
+    // Architecture: PreQueueWorker → RabbitMQ → MessageConsumer(s) → Twilio
+    // ==========================================================================
     HIGH_SCALE_DRIP: {
-        ENABLED: process.env.DRIP_HIGH_SCALE_ENABLED === 'true',
-        PRE_QUEUE_WORKER_INTERVAL: parseInt(process.env.PRE_QUEUE_WORKER_INTERVAL || '60000', 10),
-        PRE_QUEUE_MINUTES: parseInt(process.env.DRIP_PRE_QUEUE_MINUTES || '10', 10),
-        PRE_QUEUE_BATCH: parseInt(process.env.DRIP_PRE_QUEUE_BATCH || '1000', 10),
-        CONSUMER_PREFETCH: parseInt(process.env.DRIP_CONSUMER_PREFETCH || '10', 10),
-        RATE_LIMIT_MS: parseInt(process.env.DRIP_RATE_LIMIT_MS || '50', 10),
+        // Always enabled - this is the only drip processing mode
+        ENABLED: process.env.DRIP_HIGH_SCALE_ENABLED !== 'false',
+
+        // PreQueue Worker: Moves scheduled_messages → RabbitMQ
+        PRE_QUEUE_WORKER_INTERVAL: parseInt(process.env.PRE_QUEUE_WORKER_INTERVAL || '30000', 10),  // Check every 30s for faster response
+        PRE_QUEUE_MINUTES: parseInt(process.env.DRIP_PRE_QUEUE_MINUTES || '15', 10),               // Look ahead 15 minutes
+        PRE_QUEUE_BATCH: parseInt(process.env.DRIP_PRE_QUEUE_BATCH || '2000', 10),                 // Queue 2000 at a time
+
+        // Message Consumer: RabbitMQ → Twilio
+        CONSUMER_PREFETCH: parseInt(process.env.DRIP_CONSUMER_PREFETCH || '50', 10),               // Hold 50 messages per consumer
+        RATE_LIMIT_MS: parseInt(process.env.DRIP_RATE_LIMIT_MS || '25', 10),                       // 25ms = 40 msg/sec per consumer
+
+        // Retry and batch settings
         MAX_RETRY: parseInt(process.env.DRIP_MAX_RETRY || '3', 10),
-        BULK_INSERT_SIZE: parseInt(process.env.DRIP_BULK_INSERT_SIZE || '500', 10)
+        BULK_INSERT_SIZE: parseInt(process.env.DRIP_BULK_INSERT_SIZE || '1000', 10),               // Batch DB inserts
+
+        // Scaling settings
+        CONCURRENT_CONSUMERS: parseInt(process.env.DRIP_CONCURRENT_CONSUMERS || '5', 10),          // Number of consumer instances
+        MAX_MESSAGES_PER_SECOND: parseInt(process.env.DRIP_MAX_MESSAGES_PER_SECOND || '100', 10)   // Rate limit cap
     },
 
     MESSAGE_WORKER: {

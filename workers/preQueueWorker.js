@@ -1,6 +1,14 @@
 /**
- * Pre-Queue Worker for sengine-workers
- * Pushes scheduled messages to RabbitMQ before their send time
+ * Pre-Queue Worker for sengine-workers (HIGH-SCALE MODE)
+ *
+ * This worker is part of the high-scale drip processing pipeline:
+ * scheduled_messages (DB) → PreQueueWorker → RabbitMQ → MessageConsumer → Twilio
+ *
+ * Features:
+ * - Fetches pending scheduled_messages from database
+ * - Pushes to RabbitMQ 10-15 minutes before send time
+ * - Batch processing for high throughput (2000+ per cycle)
+ * - Marks messages as QUEUED in database
  *
  * Run standalone: node workers/preQueueWorker.js
  * Or as part of main app: require('./workers/preQueueWorker').start()

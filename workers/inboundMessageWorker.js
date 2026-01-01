@@ -9,7 +9,7 @@
  * - Processes opt-out/opt-in keywords
  * - Publishes WebSocket notifications via Redis pub/sub
  *
- * @module workers/inboundWorker
+ * @module workers/inboundMessageWorker
  */
 
 const path = require('path');
@@ -22,6 +22,7 @@ const rabbitmq = require('../config/rabbitmq');
 const { dbReader, dbWriter } = require('../config/database');
 const { to } = require('../services/util.service');
 const optoutService = require('../services/message/optout.service');
+const webhookProducer = require('../services/webhook/webhookProducer.service');
 const CONFIG = require('../config/config');
 
 let isRunning = false;
@@ -76,7 +77,7 @@ const findUserByNumber = async (toNumber) => {
     );
 
     if (err || !userNumber) {
-        console.log('[InboundWorker] User number not found:', toNumber);
+        console.log('[InboundMessageWorker] User number not found:', toNumber);
         return null;
     }
 
@@ -150,11 +151,11 @@ const findOrCreateContact = async (fromNumber, userId, workspaceId) => {
     );
 
     if (insertErr) {
-        console.error('[InboundWorker] Error creating contact:', insertErr);
+        console.error('[InboundMessageWorker] Error creating contact:', insertErr);
         return null;
     }
 
-    console.log('[InboundWorker] Created new contact:', inserted[0].id);
+    console.log('[InboundMessageWorker] Created new contact:', inserted[0].id);
     return { contact: inserted[0], isNew: true };
 };
 
@@ -162,7 +163,7 @@ const findOrCreateContact = async (fromNumber, userId, workspaceId) => {
  * Process opt-out for contact
  */
 const processOptOut = async (contact, userId) => {
-    console.log('[InboundWorker] Processing opt-out for contact:', contact.id);
+    console.log('[InboundMessageWorker] Processing opt-out for contact:', contact.id);
 
     // Update contact
     await to(
@@ -184,7 +185,7 @@ const processOptOut = async (contact, userId) => {
  * Process opt-in for contact
  */
 const processOptIn = async (contact, userId) => {
-    console.log('[InboundWorker] Processing opt-in for contact:', contact.id);
+    console.log('[InboundMessageWorker] Processing opt-in for contact:', contact.id);
 
     // Update contact
     await to(
@@ -235,7 +236,7 @@ const saveInboundMessage = async (data, user, contact) => {
     );
 
     if (insertErr) {
-        console.error('[InboundWorker] Error saving message:', insertErr);
+        console.error('[InboundMessageWorker] Error saving message:', insertErr);
         throw insertErr;
     }
 
@@ -268,9 +269,9 @@ const publishNotification = async (channel, data) => {
             data: data,
             timestamp: Date.now()
         });
-        console.log('[InboundWorker] Published notification:', channel);
+        console.log('[InboundMessageWorker] Published notification:', channel);
     } catch (error) {
-        console.error('[InboundWorker] Failed to publish notification:', error.message);
+        console.error('[InboundMessageWorker] Failed to publish notification:', error.message);
     }
 };
 
@@ -280,7 +281,7 @@ const publishNotification = async (channel, data) => {
 const handleInboundMessage = async (payload) => {
     const { data, retryCount = 0 } = payload;
 
-    console.log('[InboundWorker] Processing inbound message:', {
+    console.log('[InboundMessageWorker] Processing inbound message:', {
         messageSid: data.messageSid,
         from: data.from,
         to: data.to,
@@ -292,14 +293,14 @@ const handleInboundMessage = async (payload) => {
         // Find user by the number that received the message
         const user = await findUserByNumber(data.to);
         if (!user) {
-            console.warn('[InboundWorker] No user found for number:', data.to);
+            console.warn('[InboundMessageWorker] No user found for number:', data.to);
             return { success: false, error: 'User not found' };
         }
 
         // Find or create contact
         const contactResult = await findOrCreateContact(data.from, user.userId, user.workspaceId);
         if (!contactResult) {
-            console.error('[InboundWorker] Failed to find/create contact');
+            console.error('[InboundMessageWorker] Failed to find/create contact');
             return { success: false, error: 'Contact error' };
         }
 
@@ -320,12 +321,26 @@ const handleInboundMessage = async (payload) => {
         // Save message to database
         const savedMessage = await saveInboundMessage(data, user, contact);
 
-        console.log('[InboundWorker] Message saved:', {
+        console.log('[InboundMessageWorker] Message saved:', {
             messageId: savedMessage.id,
             contactId: contact.id,
             isOptOut,
             isOptIn,
             isNewContact: isNew
+        });
+
+        // Trigger webhook for inbound message (non-blocking)
+        webhookProducer.queueInboundMessageEvent({
+            userId: user.userId,
+            workspaceId: user.workspaceId,
+            message: savedMessage,
+            contact: contact
+        }).then(result => {
+            if (result.queued > 0) {
+                console.log('[InboundMessageWorker] Webhook events queued:', result.queued);
+            }
+        }).catch(err => {
+            console.error('[InboundMessageWorker] Webhook error:', err.message);
         });
 
         // Publish notifications for WebSocket delivery
@@ -388,8 +403,8 @@ const handleInboundMessage = async (payload) => {
         };
 
     } catch (error) {
-        console.error('[InboundWorker] Error processing message:', error);
-        logger.error('[InboundWorker] Error:', error);
+        console.error('[InboundMessageWorker] Error processing message:', error);
+        logger.error('[InboundMessageWorker] Error:', error);
         throw error;
     }
 };
@@ -399,17 +414,17 @@ const handleInboundMessage = async (payload) => {
  */
 const startConsumer = async () => {
     try {
-        console.log('[InboundWorker] Starting consumer...');
+        console.log('[InboundMessageWorker] Starting consumer...');
 
         await rabbitmq.consume(rabbitmq.QUEUES.INBOUND_MESSAGE, async (payload, msg) => {
             await handleInboundMessage(payload);
         });
 
-        console.log('[InboundWorker] Consumer started');
+        console.log('[InboundMessageWorker] Consumer started');
         isRunning = true;
 
     } catch (error) {
-        logger.error('[InboundWorker] Failed to start consumer:', error);
+        logger.error('[InboundMessageWorker] Failed to start consumer:', error);
         throw error;
     }
 };
@@ -418,9 +433,9 @@ const startConsumer = async () => {
  * Start the inbound worker
  */
 const start = async () => {
-    console.log('[InboundWorker] ========================================');
-    console.log('[InboundWorker] Starting Inbound Message Worker');
-    console.log('[InboundWorker] ========================================');
+    console.log('[InboundMessageWorker] ========================================');
+    console.log('[InboundMessageWorker] Starting Inbound Message Worker');
+    console.log('[InboundMessageWorker] ========================================');
 
     try {
         // Connect to RabbitMQ if not already connected
@@ -431,10 +446,10 @@ const start = async () => {
         // Start consuming
         await startConsumer();
 
-        console.log('[InboundWorker] Worker started successfully');
+        console.log('[InboundMessageWorker] Worker started successfully');
 
     } catch (error) {
-        logger.error('[InboundWorker] Failed to start:', error);
+        logger.error('[InboundMessageWorker] Failed to start:', error);
         throw error;
     }
 };
@@ -443,9 +458,9 @@ const start = async () => {
  * Stop the inbound worker
  */
 const stop = async () => {
-    console.log('[InboundWorker] Stopping worker...');
+    console.log('[InboundMessageWorker] Stopping worker...');
     isRunning = false;
-    console.log('[InboundWorker] Worker stopped');
+    console.log('[InboundMessageWorker] Worker stopped');
 };
 
 /**
@@ -463,17 +478,17 @@ module.exports = {
 
 // If running as standalone script
 if (require.main === module) {
-    console.log('[InboundWorker] Running as standalone process');
+    console.log('[InboundMessageWorker] Running as standalone process');
 
     // Handle graceful shutdown
     process.on('SIGINT', async () => {
-        console.log('\n[InboundWorker] Received SIGINT, shutting down...');
+        console.log('\n[InboundMessageWorker] Received SIGINT, shutting down...');
         await stop();
         process.exit(0);
     });
 
     process.on('SIGTERM', async () => {
-        console.log('\n[InboundWorker] Received SIGTERM, shutting down...');
+        console.log('\n[InboundMessageWorker] Received SIGTERM, shutting down...');
         await stop();
         process.exit(0);
     });
@@ -481,7 +496,7 @@ if (require.main === module) {
     // Start the worker
     rabbitmq.connect().then(() => {
         start().catch((error) => {
-            console.error('[InboundWorker] Fatal error:', error);
+            console.error('[InboundMessageWorker] Fatal error:', error);
             process.exit(1);
         });
     });
